@@ -33,7 +33,7 @@ export function CompanyValues() {
     <section className="py-24 bg-white">
       <div className="container mx-auto px-4">
         {/* Stats Row */}
-        <motion.div 
+        {/* <motion.div 
           className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-24"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -46,7 +46,7 @@ export function CompanyValues() {
               <p className="text-gray-600">{stat.label}</p>
             </div>
           ))}
-        </motion.div>
+        </motion.div> */}
 
         {/* Values Section */}
         <motion.div

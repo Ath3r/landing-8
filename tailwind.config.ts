@@ -68,6 +68,10 @@ const config: Config = {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		keyframes: {
+  			 'wave-pulse': {
+          '0%, 100%': { opacity: '0.4' },
+          '50%': { opacity: '0.7' },
+        },
   			'accordion-down': {
   				from: {
   					height: '0'
@@ -87,7 +91,8 @@ const config: Config = {
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
+  			'accordion-up': 'accordion-up 0.2s ease-out',
+				'wave-pulse': 'wave-pulse  4s ease-in-out infinite'
   		}
   	}
   },

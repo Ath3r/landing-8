@@ -3,55 +3,37 @@
 import { Button } from "@/components/ui/button"
 import { ChevronRight } from 'lucide-react'
 import { motion } from "framer-motion"
+import { useEffect, useRef } from 'react'
 
 export function TradingInstruments() {
-  const instruments = [
-    {
-      symbol: "XAUUSD",
-      name: "Gold vs US Dollar",
-      leverage: "Customizable",
-      spread: "11.2",
-      swapFree: "Available",
-      category: "Metals",
-      icon: "🔶"
-    },
-    {
-      symbol: "USOIL",
-      name: "Crude Oil",
-      leverage: "1:200",
-      spread: "1.2",
-      swapFree: "Available",
-      category: "Energies",
-      icon: "⚫"
-    },
-    {
-      symbol: "EURUSD",
-      name: "Euro vs US Dollar",
-      leverage: "Customizable",
-      spread: "0.6",
-      swapFree: "Available",
-      category: "Currencies",
-      icon: "🔵"
-    },
-    {
-      symbol: "US30",
-      name: "US Wall Street 30 Index",
-      leverage: "1:400",
-      spread: "1.9",
-      swapFree: "Available",
-      category: "Indices",
-      icon: "📊"
-    },
-    {
-      symbol: "AAPL",
-      name: "Apple Inc.",
-      leverage: "1:20",
-      spread: "0.9",
-      swapFree: "Swap applied",
-      category: "Stocks",
-      icon: "🍎"
+  const widgetContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-screener.js';
+    script.async = true;
+    script.innerHTML = JSON.stringify({
+      "width": "100%",
+      "height": 550,
+      "defaultColumn": "overview",
+      "defaultScreen": "general", 
+      "market": "forex",
+      "showToolbar": true,
+      "colorTheme": "dark",
+      "locale": "en",
+      "isTransparent": true
+    });
+
+    if (widgetContainerRef.current) {
+      widgetContainerRef.current.appendChild(script);
     }
-  ]
+
+    return () => {
+      if (widgetContainerRef.current && script.parentNode === widgetContainerRef.current) {
+        widgetContainerRef.current.removeChild(script);
+      }
+    };
+  }, []);
 
   return (
     <section className="bg-gray-900 py-24">
@@ -71,58 +53,13 @@ export function TradingInstruments() {
         </motion.div>
 
         <div className="max-w-6xl mx-auto">
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b border-gray-800">
-                  <th className="text-left py-4 text-sm font-medium text-gray-400">Instruments</th>
-                  <th className="text-left py-4 text-sm font-medium text-gray-400">Leverage</th>
-                  <th className="text-left py-4 text-sm font-medium text-gray-400">Avg. spread³, pips</th>
-                  <th className="text-left py-4 text-sm font-medium text-gray-400">Swap-free</th>
-                  <th className="text-right py-4 text-sm font-medium text-gray-400"></th>
-                </tr>
-              </thead>
-              <tbody>
-                {instruments.map((instrument, index) => (
-                  <motion.tr 
-                    key={instrument.symbol}
-                    className="border-b border-gray-800"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    <td className="py-4">
-                      <div className="flex items-center gap-3">
-                        <span className="text-2xl">{instrument.icon}</span>
-                        <div>
-                          <div className="font-medium text-white">{instrument.symbol}</div>
-                          <div className="text-sm text-gray-400">{instrument.name}</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="py-4">
-                      <span className="text-white">{instrument.leverage}</span>
-                    </td>
-                    <td className="py-4">
-                      <span className="text-white">{instrument.spread}</span>
-                    </td>
-                    <td className="py-4">
-                      <span className="text-white">{instrument.swapFree}</span>
-                    </td>
-                    <td className="py-4 text-right">
-                      <Button 
-                        variant="link" 
-                        className="text-gray-400 hover:text-gray-400 hover:underline"
-                      >
-                        {instrument.category}
-                        <ChevronRight className="ml-2 h-4 w-4" />
-                      </Button>
-                    </td>
-                  </motion.tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="tradingview-widget-container">
+            <div ref={widgetContainerRef} className="tradingview-widget-container__widget"></div>
+            <div className="tradingview-widget-copyright">
+              <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank">
+                <span className="blue-text">Track all markets on TradingView</span>
+              </a>
+            </div>
           </div>
 
           <motion.div 
@@ -150,4 +87,3 @@ export function TradingInstruments() {
     </section>
   )
 }
-

@@ -16,7 +16,7 @@ export function TeamSection() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              RTX Pro Trading Team
+              Nexum Capitals Trading Team
             </h2>
             <p className="text-xl text-gray-300 mb-8">
               Join our community of expert traders from across the globe. Learn from their strategies, insights, and years of market experience.

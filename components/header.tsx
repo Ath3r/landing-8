@@ -11,8 +11,8 @@ export function Header() {
 
   const platforms = {
     Desktop: [{ name: "MetaTrader 5", href: "/platforms/metatrader5" }],
-    Mobile: [{ name: "MetaTrader 5", href: "/platforms/metatrader5-mobile" }],
-    Web: [{ name: "MetaTrader 5", href: "/platforms/metatrader5-web" }],
+    Mobile: [{ name: "MetaTrader 5", href: "/platforms/mt5-mobile" }],
+    Web: [{ name: "MetaTrader 5", href: "/platforms/mt5-web" }],
   }
 
   const markets = [
@@ -24,10 +24,8 @@ export function Header() {
   ]
 
   const navItems = [
-    { label: "Trading", href: "/trading" },
-    { label: "Tools", href: "/tools" },
     { label: "Company", href: "/company" },
-    { label: "Partners", href: "/partners" },
+    { label: "Contact Us", href: "/contact" },
   ]
 
   return (
@@ -43,36 +41,35 @@ export function Header() {
                 <span className="text-xl font-bold">Nexum Capitals</span>
               </Link>
 
-              <nav className="hidden md:flex items-center gap-6">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-
+              <nav className="hidden md:flex items-center gap-8">
                 {/* Markets Dropdown */}
                 <DropdownMenu onOpenChange={setIsDropdownOpen}>
-                  <DropdownMenuTrigger className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+                  <DropdownMenuTrigger className="text-lg font-medium text-muted-foreground hover:text-primary transition-colors">
                     Markets
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="w-screen p-0 border-none bg-transparent">
-                    <div className="w-full bg-background/95 backdrop-blur-md py-8">
+                    <div className="w-full bg-background/95 backdrop-blur-md py-12">
                       <div className="container mx-auto px-4">
-                        <div className="max-w-2xl">
-                          {markets.map((market) => (
-                            <DropdownMenuItem key={market.href} asChild>
-                              <Link
-                                href={market.href}
-                                className="block select-none rounded-md p-3 text-base font-medium leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                              >
-                                {market.name}
-                              </Link>
-                            </DropdownMenuItem>
-                          ))}
+                        <div className="max-w-4xl">
+                          <h2 className="text-2xl font-bold mb-8 px-6">Trading Markets</h2>
+                          <div className="grid grid-cols-2 gap-4">
+                            {markets.map((market) => (
+                              <DropdownMenuItem key={market.href} asChild>
+                                <Link
+                                  href={market.href}
+                                  className="flex items-center gap-6 select-none rounded-xl p-6 text-lg font-medium leading-relaxed no-underline outline-none transition-all hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground group"
+                                >
+                                  <div className="flex-shrink-0 w-16 h-16 flex items-center justify-center rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                                    <div className="w-10 h-10 rounded-lg bg-primary/20 group-hover:bg-primary/30 transition-colors" />
+                                  </div>
+                                  <div className="space-y-1">
+                                    <div className="text-xl font-semibold">{market.name}</div>
+                                    <p className="text-sm text-muted-foreground">Trade the world's most popular {market.name.toLowerCase()} markets</p>
+                                  </div>
+                                </Link>
+                              </DropdownMenuItem>
+                            ))}
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -81,7 +78,7 @@ export function Header() {
 
                 {/* Platforms Dropdown */}
                 <DropdownMenu onOpenChange={setIsDropdownOpen}>
-                  <DropdownMenuTrigger className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+                  <DropdownMenuTrigger className="text-lg font-medium text-muted-foreground hover:text-primary transition-colors">
                     Platforms
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="w-screen p-0 border-none bg-transparent">
@@ -90,15 +87,25 @@ export function Header() {
                         <div className="grid grid-cols-3 gap-8">
                           {Object.entries(platforms).map(([category, items]) => (
                             <div key={category} className="space-y-4">
-                              <h3 className="text-sm font-medium text-muted-foreground">{category}</h3>
-                              <div className="space-y-2">
+                              <h3 className="text-base font-semibold text-muted-foreground">{category}</h3>
+                              <div className="space-y-3">
                                 {items.map((item) => (
                                   <DropdownMenuItem key={item.href} asChild>
                                     <Link
                                       href={item.href}
-                                      className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                                      className="flex items-center gap-3 select-none rounded-md p-4 no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                                     >
-                                      <div className="text-base font-medium leading-none">{item.name}</div>
+                                      <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-primary/10">
+                                        <div className="w-6 h-6 rounded-full bg-primary/20" />
+                                      </div>
+                                      <div>
+                                        <div className="text-lg font-medium leading-none mb-1">
+                                          {item.name}
+                                        </div>
+                                        <p className="text-sm text-muted-foreground">
+                                          Learn more about our trading platform
+                                        </p>
+                                      </div>
                                     </Link>
                                   </DropdownMenuItem>
                                 ))}
@@ -110,18 +117,25 @@ export function Header() {
                     </div>
                   </DropdownMenuContent>
                 </DropdownMenu>
+
+                {/* Regular Nav Items */}
+                {navItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="text-lg font-medium text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
               </nav>
             </div>
 
             <div className="flex items-center gap-4">
-              <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary">
-                <Globe className="h-4 w-4 mr-2" />
-                EN
-              </Button>
-              <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary">
+              <Button variant="ghost" size="lg" className="text-lg text-muted-foreground hover:text-primary">
                 Sign In
               </Button>
-              <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
+              <Button size="lg" className="text-lg bg-primary text-primary-foreground hover:bg-primary/90">
                 Register
               </Button>
             </div>
@@ -131,4 +145,3 @@ export function Header() {
     </>
   )
 }
-

@@ -2,23 +2,25 @@
 
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
+import { useRef, useEffect } from "react"
+import { Waves } from "@/components/waves/waves-background"
 
 export function Hero() {
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated background */}
-      <div className="absolute inset-0 z-0">
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear"
-          }}
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background/80">
+      <div className="absolute inset-0">
+        <Waves
+          lineColor="rgba(0, 0, 0, 0.15)" 
+          backgroundColor="transparent"
+          waveSpeedX={0.02}
+          waveSpeedY={0.01}
+          waveAmpX={40}
+          waveAmpY={20}
+          friction={0.9}
+          tension={0.01}
+          maxCursorMove={120}
+          xGap={12}
+          yGap={36}
         />
       </div>
 
@@ -79,4 +81,3 @@ export function Hero() {
     </div>
   )
 }
-

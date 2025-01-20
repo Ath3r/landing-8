@@ -12,8 +12,8 @@ export default function CompanyPage() {
     <main>
       <CompanyHero />
       <CompanyAbout />
-      <CompanyFounder />
-      <CompanyInfoLeftImage />
+      {/* <CompanyFounder /> */}
+      {/* <CompanyInfoLeftImage /> */}
       <CompanyStats />
       <CompanyValues />
       <CompanyImageShowcase />
