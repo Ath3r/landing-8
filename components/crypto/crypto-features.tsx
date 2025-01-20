@@ -7,12 +7,12 @@ import {
   LineChart,
   ArrowUpDown
 } from "lucide-react"
-import { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, memo } from 'react'
 
 const tradingFeatures = [
   {
     icon: <Wallet className="w-6 h-6" />,
-    title: "Secure Wallet",
+    title: "Secure Wallet", 
     description: "Store your crypto assets safely with our secure wallet solution"
   },
   {
@@ -32,73 +32,60 @@ const tradingFeatures = [
   }
 ]
 
-export function CryptoFeatures() {
-  const widgetContainerRef = useRef<HTMLDivElement>(null);
+const TradingViewWidget = memo(function TradingViewWidget() {
+  const container = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.async = true;
-
-    const widgetConfig = {
-      "symbols": [
-        ["Bitcoin", "BINANCE:BTCUSDT|1D"],
-        ["Ethereum", "BINANCE:ETHUSDT|1D"],
-        ["Ripple", "BINANCE:XRPUSDT|1D"],
-        ["Cardano", "BINANCE:ADAUSDT|1D"],
-        ["Solana", "BINANCE:SOLUSDT|1D"],
-        ["Polkadot", "BINANCE:DOTUSDT|1D"]
-      ],
-      "chartOnly": false,
-      "width": "100%",
-      "height": 500,
-      "locale": "en",
-      "colorTheme": "light",
-      "autosize": false,
-      "showVolume": false,
-      "showMA": false,
-      "hideDateRanges": false,
-      "hideMarketStatus": false,
-      "hideSymbolLogo": false,
-      "scalePosition": "right",
-      "scaleMode": "Normal",
-      "fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-      "fontSize": "10",
-      "noTimeScale": false,
-      "valuesTracking": "1",
-      "changeMode": "price-and-percent",
-      "chartType": "area",
-      "gridLineColor": "rgba(240, 243, 250, 0)",
-      "backgroundColor": "rgba(255, 255, 255, 0)"
-    };
-
-    // Create a container div for TradingView
-    const container = document.createElement('div');
-    container.className = 'tradingview-widget-container';
-    
-    // Create widget div
-    const widget = document.createElement('div');
-    widget.className = 'tradingview-widget-container__widget';
-    container.appendChild(widget);
-
-    // Set up the script
-    script.innerHTML = JSON.stringify(widgetConfig);
-    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js';
-    
-    // Append elements
-    if (widgetContainerRef.current) {
-      widgetContainerRef.current.innerHTML = ''; // Clear existing content
-      widgetContainerRef.current.appendChild(container);
-      container.appendChild(script);
+    // Clean up any existing widgets first
+    if (container.current) {
+      container.current.innerHTML = '';
     }
 
+    if (!container.current) return;
+
+    const script = document.createElement("script");
+    script.src = "https://s3.tradingview.com/external-embedding/embed-widget-crypto-coins-heatmap.js";
+    script.type = "text/javascript";
+    script.async = true;
+    script.innerHTML = `
+      {
+        "dataSource": "Crypto",
+        "blockSize": "market_cap_calc",
+        "blockColor": "change",
+        "locale": "en",
+        "symbolUrl": "",
+        "colorTheme": "dark",
+        "hasTopBar": false,
+        "isDataSetEnabled": false,
+        "isZoomEnabled": true,
+        "hasSymbolTooltip": true,
+        "isMonoSize": false,
+        "width": "100%",
+        "height": "100%"
+      }`;
+    container.current.appendChild(script);
+
+    // Cleanup function
     return () => {
-      if (widgetContainerRef.current) {
-        widgetContainerRef.current.innerHTML = '';
+      if (container.current) {
+        container.current.innerHTML = '';
       }
     };
   }, []);
 
+  return (
+    <div className="tradingview-widget-container" ref={container}>
+      <div className="tradingview-widget-container__widget"></div>
+      <div className="tradingview-widget-copyright">
+        <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank">
+          <span className="blue-text">Track all markets on TradingView</span>
+        </a>
+      </div>
+    </div>
+  );
+});
+
+export function CryptoFeatures() {
   return (
     <section className="py-24 bg-white">
       <div className="container mx-auto px-4">
@@ -124,10 +111,7 @@ export function CryptoFeatures() {
           transition={{ duration: 0.5 }}
           className="w-full h-[500px] relative mb-24"
         >
-          <div 
-            ref={widgetContainerRef}
-            className="w-full h-full"
-          />
+          <TradingViewWidget />
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
@@ -174,4 +158,4 @@ export function CryptoFeatures() {
       </div>
     </section>
   )
-} 
+}
