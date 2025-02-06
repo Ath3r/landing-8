@@ -61,108 +61,76 @@ export function RetroGrid({
 
 export function Hero() {
   return (
-    <div className="relative min-h-screen flex items-center justify-center bg-background/80">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 pointer-events-none">
-          <RetroGrid />
-        </div>
-      </div>
-
+    <div className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden">
+      <RetroGrid className="absolute inset-0" />
       <div className="container mx-auto px-4 py-20 sm:py-32 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h1
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 sm:mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 mb-4 sm:mb-6"
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.7, type: "spring" }}
           >
-            Upgrade the way you trade
+            Elevate Your Financial Horizons
           </motion.h1>
 
           <motion.p
-            className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-6 sm:mb-8 px-2"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-xl sm:text-2xl md:text-3xl text-gray-600 mb-8 sm:mb-10 px-2"
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
           >
-            Trade with the world's largest retail broker and benefit from
-            better-than-market conditions.
+            Experience precision trading with our advanced platform and global
+            market insights.
           </motion.p>
 
           <motion.div
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center px-4 sm:px-0"
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
           >
             <Button
               size="lg"
-              className="text-base sm:text-lg px-6 sm:px-8 py-6 sm:py-6"
+              className="text-lg sm:text-xl px-8 sm:px-10 py-6 sm:py-8 text-primary bg-secondary hover:bg-secondary hover:text-primary font-bold rounded-full transform transition hover:scale-105"
             >
-              Register
+              Login to Portal
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="text-base sm:text-lg px-6 sm:px-8 py-6 sm:py-6"
+              className="text-lg sm:text-xl px-8 sm:px-10 py-6 sm:py-8 border-2 border-primary text-primary font-bold rounded-full transform transition hover:scale-105"
             >
-              Try free demo
+              Begin Your Trading Journey
             </Button>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mt-16 sm:mt-20">
-            <motion.div
-              className="flex flex-col items-center text-center px-2"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              <h3 className="font-bold text-base sm:text-lg mb-1 sm:mb-2">
-                800,000+ active traders
-              </h3>
-              <p className="text-xs sm:text-sm text-muted-foreground">
-                Join our growing community
-              </p>
-            </motion.div>
-            <motion.div
-              className="flex flex-col items-center text-center px-2"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
-              <h3 className="font-bold text-base sm:text-lg mb-1 sm:mb-2">
-                Multiple regulatory licenses
-              </h3>
-              <p className="text-xs sm:text-sm text-muted-foreground">
-                Trade with confidence
-              </p>
-            </motion.div>
-            <motion.div
-              className="flex flex-col items-center text-center px-2"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-            >
-              <h3 className="font-bold text-base sm:text-lg mb-1 sm:mb-2">
-                24/7 customer support
-              </h3>
-              <p className="text-xs sm:text-sm text-muted-foreground">
-                We're here to help
-              </p>
-            </motion.div>
-            <motion.div
-              className="flex flex-col items-center text-center px-2"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-            >
-              <h3 className="font-bold text-base sm:text-lg mb-1 sm:mb-2">
-                PCI DSS certified
-              </h3>
-              <p className="text-xs sm:text-sm text-muted-foreground">
-                Your security is our priority
-              </p>
-            </motion.div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
+            {[
+              {
+                title: "Global Reach",
+                subtitle: "Traders from 180+ countries",
+              },
+              { title: "24/7 Markets", subtitle: "Trade anytime, anywhere" },
+              {
+                title: "Fast Execution",
+                subtitle: "Orders filled in milliseconds",
+              },
+              { title: "Secure Platform", subtitle: "Bank-grade encryption" },
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                className="text-center p-4 bg-white/90 rounded-lg shadow-md"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+              >
+                <h3 className="text-lg font-semibold text-gray-800 mb-1">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-gray-600">{item.subtitle}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>

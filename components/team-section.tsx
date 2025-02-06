@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { motion } from "framer-motion"
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 export function TeamSection() {
   return (
@@ -9,7 +9,7 @@ export function TeamSection() {
       <div className="container mx-auto px-4 py-32">
         <div className="max-w-6xl mx-auto relative">
           {/* Content */}
-          <motion.div 
+          <motion.div
             className="max-w-xl relative z-10"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -19,13 +19,14 @@ export function TeamSection() {
               Nexum Capitals Trading Team
             </h2>
             <p className="text-xl text-gray-300 mb-8">
-              Join our community of expert traders from across the globe. Learn from their strategies, insights, and years of market experience.
+              Join our community of expert traders from across the globe. Learn
+              from their strategies, insights, and years of market experience.
             </p>
-            <Button 
+            <Button
               size="lg"
-              className="bg-white hover:bg-gray-100 text-black font-semibold px-8"
+              className="bg-secondary hover:bg-secondary/90 text-primary font-semibold px-8"
             >
-              Meet our experts
+              Join Our Team
             </Button>
           </motion.div>
 
@@ -46,8 +47,8 @@ export function TeamSection() {
                     className="absolute top-1/2 left-1/2 w-48 h-24 bg-white"
                     style={{
                       transform: `rotate(${i * 45}deg) translateX(120px)`,
-                      clipPath: 'polygon(0 0, 100% 0, 85% 100%, 15% 100%)',
-                      opacity: 0.1
+                      clipPath: "polygon(0 0, 100% 0, 85% 100%, 15% 100%)",
+                      opacity: 0.1,
                     }}
                   />
                 ))}
@@ -57,6 +58,5 @@ export function TeamSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-
