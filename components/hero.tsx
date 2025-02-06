@@ -1,39 +1,76 @@
-'use client'
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { motion } from "framer-motion"
-import { useRef, useEffect } from "react"
-import { Waves } from "@/components/waves/waves-background"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
-import Link from "next/link"
-import { Menu, X } from "lucide-react"
-import { useState } from "react"
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { useRef, useEffect } from "react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import Link from "next/link";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
+import { cn } from "@/lib/utils";
+
+export function RetroGrid({
+  className,
+  angle = 65,
+}: {
+  className?: string;
+  angle?: number;
+}) {
+  return (
+    <div
+      className={cn(
+        "pointer-events-none absolute size-full overflow-hidden opacity-50 [perspective:200px]",
+        className
+      )}
+      style={{ "--grid-angle": `${angle}deg` } as React.CSSProperties}
+    >
+      {/* Grid */}
+      <div className="absolute inset-0 [transform:rotateX(var(--grid-angle))]">
+        <div
+          className={cn(
+            "animate-grid",
+
+            "[background-repeat:repeat] [background-size:60px_60px] [height:300vh] [inset:0%_0px] [margin-left:-50%] [transform-origin:100%_0_0] [width:600vw]",
+
+            // Light Styles
+            "[background-image:linear-gradient(to_right,rgba(0,0,0,0.3)_1px,transparent_0),linear-gradient(to_bottom,rgba(0,0,0,0.3)_1px,transparent_0)]",
+
+            // Dark styles
+            "dark:[background-image:linear-gradient(to_right,rgba(255,255,255,0.2)_1px,transparent_0),linear-gradient(to_bottom,rgba(255,255,255,0.2)_1px,transparent_0)]"
+          )}
+        />
+      </div>
+
+      {/* Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-t from-white to-transparent to-90% dark:from-black" />
+    </div>
+  );
+}
 
 export function Hero() {
   return (
     <div className="relative min-h-screen flex items-center justify-center bg-background/80">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 pointer-events-none">
-          <Waves
-            lineColor="rgba(0, 0, 0, 0.15)" 
-            backgroundColor="transparent"
-            waveSpeedX={0.02}
-            waveSpeedY={0.01}
-            waveAmpX={40}
-            waveAmpY={20}
-            friction={0.9}
-            tension={0.01}
-            maxCursorMove={120}
-            xGap={12}
-            yGap={36}
-          />
+          <RetroGrid />
         </div>
       </div>
 
       <div className="container mx-auto px-4 py-20 sm:py-32 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.h1 
+          <motion.h1
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 sm:mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -41,83 +78,107 @@ export function Hero() {
           >
             Upgrade the way you trade
           </motion.h1>
-          
-          <motion.p 
+
+          <motion.p
             className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-6 sm:mb-8 px-2"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            Trade with the world's largest retail broker and benefit from better-than-market conditions.
+            Trade with the world's largest retail broker and benefit from
+            better-than-market conditions.
           </motion.p>
 
-          <motion.div 
+          <motion.div
             className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <Button size="lg" className="text-base sm:text-lg px-6 sm:px-8 py-6 sm:py-6">
+            <Button
+              size="lg"
+              className="text-base sm:text-lg px-6 sm:px-8 py-6 sm:py-6"
+            >
               Register
             </Button>
-            <Button size="lg" variant="outline" className="text-base sm:text-lg px-6 sm:px-8 py-6 sm:py-6">
+            <Button
+              size="lg"
+              variant="outline"
+              className="text-base sm:text-lg px-6 sm:px-8 py-6 sm:py-6"
+            >
               Try free demo
             </Button>
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mt-16 sm:mt-20">
-            <motion.div 
+            <motion.div
               className="flex flex-col items-center text-center px-2"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <h3 className="font-bold text-base sm:text-lg mb-1 sm:mb-2">800,000+ active traders</h3>
-              <p className="text-xs sm:text-sm text-muted-foreground">Join our growing community</p>
+              <h3 className="font-bold text-base sm:text-lg mb-1 sm:mb-2">
+                800,000+ active traders
+              </h3>
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                Join our growing community
+              </p>
             </motion.div>
-            <motion.div 
+            <motion.div
               className="flex flex-col items-center text-center px-2"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              <h3 className="font-bold text-base sm:text-lg mb-1 sm:mb-2">Multiple regulatory licenses</h3>
-              <p className="text-xs sm:text-sm text-muted-foreground">Trade with confidence</p>
+              <h3 className="font-bold text-base sm:text-lg mb-1 sm:mb-2">
+                Multiple regulatory licenses
+              </h3>
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                Trade with confidence
+              </p>
             </motion.div>
-            <motion.div 
+            <motion.div
               className="flex flex-col items-center text-center px-2"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
             >
-              <h3 className="font-bold text-base sm:text-lg mb-1 sm:mb-2">24/7 customer support</h3>
-              <p className="text-xs sm:text-sm text-muted-foreground">We're here to help</p>
+              <h3 className="font-bold text-base sm:text-lg mb-1 sm:mb-2">
+                24/7 customer support
+              </h3>
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                We're here to help
+              </p>
             </motion.div>
-            <motion.div 
+            <motion.div
               className="flex flex-col items-center text-center px-2"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
             >
-              <h3 className="font-bold text-base sm:text-lg mb-1 sm:mb-2">PCI DSS certified</h3>
-              <p className="text-xs sm:text-sm text-muted-foreground">Your security is our priority</p>
+              <h3 className="font-bold text-base sm:text-lg mb-1 sm:mb-2">
+                PCI DSS certified
+              </h3>
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                Your security is our priority
+              </p>
             </motion.div>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export function Header() {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const platforms = {
     Desktop: [{ name: "MetaTrader 5", href: "/platforms/metatrader5" }],
     Mobile: [{ name: "MetaTrader 5", href: "/platforms/mt5-mobile" }],
     Web: [{ name: "MetaTrader 5", href: "/platforms/mt5-web" }],
-  }
+  };
 
   const markets = [
     { name: "Forex CFD", href: "/markets/forex" },
@@ -125,17 +186,19 @@ export function Header() {
     { name: "Stocks CFD", href: "/markets/stocks" },
     { name: "Indices CFD", href: "/markets/indices" },
     { name: "Crypto CFD", href: "/markets/crypto" },
-  ]
+  ];
 
   const navItems = [
     { label: "Company", href: "/company" },
     { label: "Contact Us", href: "/contact" },
-  ]
+  ];
 
   return (
     <>
       {/* Enhanced backdrop blur when dropdown is open */}
-      {isDropdownOpen && <div className="fixed inset-0 bg-background/60 backdrop-blur-md z-40" />}
+      {isDropdownOpen && (
+        <div className="fixed inset-0 bg-background/60 backdrop-blur-md z-40" />
+      )}
 
       <header className="fixed top-0 left-0 right-0 z-50 border-b bg-white">
         <div className="container mx-auto">
@@ -155,7 +218,9 @@ export function Header() {
                   <div className="w-full bg-background/95 backdrop-blur-md py-12">
                     <div className="container mx-auto px-4">
                       <div className="max-w-4xl">
-                        <h2 className="text-2xl font-bold mb-8 px-6">Trading Markets</h2>
+                        <h2 className="text-2xl font-bold mb-8 px-6">
+                          Trading Markets
+                        </h2>
                         <div className="grid grid-cols-2 gap-4">
                           {markets.map((market) => (
                             <DropdownMenuItem key={market.href} asChild>
@@ -167,8 +232,13 @@ export function Header() {
                                   <div className="w-10 h-10 rounded-lg bg-primary/20 group-hover:bg-primary/30 transition-colors" />
                                 </div>
                                 <div className="space-y-1">
-                                  <div className="text-xl font-semibold">{market.name}</div>
-                                  <p className="text-sm text-muted-foreground">Trade the world's most popular {market.name.toLowerCase()} markets</p>
+                                  <div className="text-xl font-semibold">
+                                    {market.name}
+                                  </div>
+                                  <p className="text-sm text-muted-foreground">
+                                    Trade the world's most popular{" "}
+                                    {market.name.toLowerCase()} markets
+                                  </p>
                                 </div>
                               </Link>
                             </DropdownMenuItem>
@@ -191,7 +261,9 @@ export function Header() {
                       <div className="grid grid-cols-3 gap-8">
                         {Object.entries(platforms).map(([category, items]) => (
                           <div key={category} className="space-y-4">
-                            <h3 className="text-base font-semibold text-muted-foreground">{category}</h3>
+                            <h3 className="text-base font-semibold text-muted-foreground">
+                              {category}
+                            </h3>
                             <div className="space-y-3">
                               {items.map((item) => (
                                 <DropdownMenuItem key={item.href} asChild>
@@ -234,10 +306,17 @@ export function Header() {
               ))}
 
               {/* Desktop Buttons */}
-              <Button variant="ghost" size="lg" className="text-lg text-muted-foreground hover:text-primary">
+              <Button
+                variant="ghost"
+                size="lg"
+                className="text-lg text-muted-foreground hover:text-primary"
+              >
                 Sign In
               </Button>
-              <Button size="lg" className="text-lg bg-primary text-primary-foreground hover:bg-primary/90">
+              <Button
+                size="lg"
+                className="text-lg bg-primary text-primary-foreground hover:bg-primary/90"
+              >
                 Register
               </Button>
             </nav>
@@ -254,14 +333,16 @@ export function Header() {
                   <SheetHeader className="p-6 border-b">
                     <SheetTitle>Menu</SheetTitle>
                   </SheetHeader>
-                  
+
                   {/* Mobile Navigation */}
                   <div className="flex-1 overflow-y-auto">
                     <div className="px-6 py-4">
                       <div className="space-y-6">
                         {/* Markets Section */}
                         <div>
-                          <h3 className="text-lg font-semibold mb-3">Markets</h3>
+                          <h3 className="text-lg font-semibold mb-3">
+                            Markets
+                          </h3>
                           <div className="space-y-2">
                             {markets.map((market) => (
                               <Link
@@ -278,29 +359,37 @@ export function Header() {
 
                         {/* Platforms Section */}
                         <div>
-                          <h3 className="text-lg font-semibold mb-3">Platforms</h3>
-                          {Object.entries(platforms).map(([category, items]) => (
-                            <div key={category} className="mb-4">
-                              <h4 className="text-sm font-medium text-muted-foreground mb-2">{category}</h4>
-                              <div className="space-y-2">
-                                {items.map((item) => (
-                                  <Link
-                                    key={item.href}
-                                    href={item.href}
-                                    onClick={() => setIsMobileMenuOpen(false)}
-                                    className="block py-2 text-muted-foreground hover:text-primary transition-colors"
-                                  >
-                                    {item.name}
-                                  </Link>
-                                ))}
+                          <h3 className="text-lg font-semibold mb-3">
+                            Platforms
+                          </h3>
+                          {Object.entries(platforms).map(
+                            ([category, items]) => (
+                              <div key={category} className="mb-4">
+                                <h4 className="text-sm font-medium text-muted-foreground mb-2">
+                                  {category}
+                                </h4>
+                                <div className="space-y-2">
+                                  {items.map((item) => (
+                                    <Link
+                                      key={item.href}
+                                      href={item.href}
+                                      onClick={() => setIsMobileMenuOpen(false)}
+                                      className="block py-2 text-muted-foreground hover:text-primary transition-colors"
+                                    >
+                                      {item.name}
+                                    </Link>
+                                  ))}
+                                </div>
                               </div>
-                            </div>
-                          ))}
+                            )
+                          )}
                         </div>
 
                         {/* Nav Items */}
                         <div>
-                          <h3 className="text-lg font-semibold mb-3">Company</h3>
+                          <h3 className="text-lg font-semibold mb-3">
+                            Company
+                          </h3>
                           <div className="space-y-2">
                             {navItems.map((item) => (
                               <Link
@@ -320,7 +409,10 @@ export function Header() {
 
                   {/* Mobile Action Buttons */}
                   <div className="border-t p-6 space-y-4">
-                    <Button variant="outline" className="w-full justify-center text-lg h-12">
+                    <Button
+                      variant="outline"
+                      className="w-full justify-center text-lg h-12"
+                    >
                       Sign In
                     </Button>
                     <Button className="w-full justify-center text-lg h-12">
@@ -334,5 +426,5 @@ export function Header() {
         </div>
       </header>
     </>
-  )
+  );
 }

@@ -1,4 +1,0 @@
-<Rules>
-Always use tailwindcss and framer motion for animations.
-Always build components in a way that they can be reused in other projects.
-</Rules>
