@@ -46,14 +46,14 @@ export function Footer() {
           {/* Company Info */}
           <div className="space-y-6">
             <Link href="/" className="inline-block">
-              <span className="text-3xl font-bold text-white hover:text-primary transition-colors">
+              <span className="text-3xl font-bold text-white hover:text-secondary transition-colors">
                 Nexum Capitals
               </span>
             </Link>
             <div className="space-y-4">
               <div className="flex items-start gap-3 group">
-                <Building2 className="w-6 h-6 mt-1 shrink-0 text-primary group-hover:text-white transition-colors" />
-                <div className="group-hover:text-white transition-colors">
+                <Building2 className="w-6 h-6 mt-1 shrink-0 text-primary group-hover:text-secondary transition-colors" />
+                <div className="group-hover:text-secondary transition-colors">
                   <p className="font-medium text-white">Registered Office</p>
                   <p>Ground Floor, The Sotheby Building</p>
                   <p>Rodney Village, Rodney Bay</p>
@@ -61,19 +61,19 @@ export function Footer() {
                 </div>
               </div>
               <div className="flex items-center gap-3 group">
-                <Mail className="w-6 h-6 shrink-0 text-primary group-hover:text-white transition-colors" />
+                <Mail className="w-6 h-6 shrink-0 text-primary group-hover:text-secondary transition-colors" />
                 <a
                   href="mailto:support@nexumcapitals.com"
-                  className="group-hover:text-white transition-colors"
+                  className="group-hover:text-secondary transition-colors"
                 >
                   support@nexumcapitals.com
                 </a>
               </div>
               <div className="flex items-center gap-3 group">
-                <Phone className="w-6 h-6 shrink-0 text-primary group-hover:text-white transition-colors" />
+                <Phone className="w-6 h-6 shrink-0 text-primary group-hover:text-secondary transition-colors" />
                 <a
                   href="tel:+442012345678"
-                  className="group-hover:text-white transition-colors"
+                  className="group-hover:text-secondary transition-colors"
                 >
                   +44 20 1234 5678
                 </a>
@@ -91,7 +91,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="hover:text-primary transition-colors flex items-center gap-2"
+                    className="hover:text-secondary transition-colors flex items-center gap-2"
                   >
                     <span className="w-1 h-1 bg-primary rounded-full"></span>
                     {link.name}
@@ -111,7 +111,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="hover:text-primary transition-colors flex items-center gap-2"
+                    className="hover:text-secondary transition-colors flex items-center gap-2"
                   >
                     <span className="w-1 h-1 bg-primary rounded-full"></span>
                     {link.name}
@@ -131,7 +131,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="hover:text-primary transition-colors flex items-center gap-2"
+                    className="hover:text-secondary transition-colors flex items-center gap-2"
                   >
                     <span className="w-1 h-1 bg-primary rounded-full"></span>
                     {link.name}
