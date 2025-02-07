@@ -38,7 +38,6 @@ export function Header() {
 
   return (
     <>
-      {/* Enhanced backdrop blur when dropdown is open */}
       {isDropdownOpen && (
         <div className="fixed inset-0 bg-background/60 backdrop-blur-md z-40" />
       )}
@@ -48,16 +47,17 @@ export function Header() {
           <div className="flex h-16 items-center justify-between px-4">
             <div className="flex items-center gap-8">
               <Link href="/" className="flex items-center space-x-2">
-                <Image
-                  src={logo}
-                  alt="Nexum Capitals Logo"
-                  className="w-full h-10 py-2"
-                />
+                <div className="relative w-32 h-10">
+                  <Image
+                    src={logo}
+                    alt="Nexum Capitals Logo"
+                    layout="fill"
+                    objectFit="contain"
+                  />
+                </div>
               </Link>
 
-              {/* Desktop Navigation */}
               <nav className="hidden lg:flex items-center gap-8">
-                {/* Markets Dropdown */}
                 <DropdownMenu onOpenChange={setIsDropdownOpen}>
                   <DropdownMenuTrigger className="text-lg font-medium text-muted-foreground hover:text-primary transition-colors">
                     Markets
@@ -98,7 +98,6 @@ export function Header() {
                   </DropdownMenuContent>
                 </DropdownMenu>
 
-                {/* Platforms Dropdown */}
                 <DropdownMenu onOpenChange={setIsDropdownOpen}>
                   <DropdownMenuTrigger className="text-lg font-medium text-muted-foreground hover:text-primary transition-colors">
                     Platforms
@@ -145,7 +144,6 @@ export function Header() {
                   </DropdownMenuContent>
                 </DropdownMenu>
 
-                {/* Regular Nav Items */}
                 {navItems.map((item) => (
                   <Link
                     key={item.href}
@@ -158,7 +156,6 @@ export function Header() {
               </nav>
             </div>
 
-            {/* Desktop Auth Buttons */}
             <div className="hidden lg:flex items-center gap-4">
               <Button
                 variant="ghost"
@@ -175,7 +172,6 @@ export function Header() {
               </Button>
             </div>
 
-            {/* Mobile Menu Button & Content */}
             <div className="lg:hidden">
               <Button
                 variant="ghost"
@@ -189,7 +185,6 @@ export function Header() {
                 )}
               </Button>
 
-              {/* Mobile Menu Dropdown */}
               {isMobileMenuOpen && (
                 <div className="fixed top-16 left-0 right-0 bottom-0 bg-background/95 backdrop-blur-md z-[100] overflow-y-auto">
                   <div className="container mx-auto px-4 py-6">
