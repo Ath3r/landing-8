@@ -47,7 +47,7 @@ export function Header() {
           <div className="flex h-16 items-center justify-between px-4">
             <div className="flex items-center gap-8">
               <Link href="/" className="flex items-center space-x-2">
-                <div className="relative w-32 h-10">
+                <div className="relative w-48 h-16">
                   <Image
                     src={logo}
                     alt="Nexum Capitals Logo"
