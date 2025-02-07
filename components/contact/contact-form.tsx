@@ -1,176 +1,134 @@
-'use client'
+"use client";
 
-import { motion } from "framer-motion"
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { 
-  Phone, 
-  User,
-  MessageSquare,
-  Send
-} from "lucide-react"
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
+import { Phone, User, MessageSquare, Send, Mail } from "lucide-react";
 
-interface FormData {
-  firstName: string
-  lastName: string
-  mobile: string
-  message: string
-}
+const formSchema = z.object({
+  name: z.string().min(2, {
+    message: "Name must be at least 2 characters.",
+  }),
+  email: z.string().email({
+    message: "Please enter a valid email address.",
+  }),
+  subject: z.string().min(5, {
+    message: "Subject must be at least 5 characters.",
+  }),
+  message: z.string().min(10, {
+    message: "Message must be at least 10 characters.",
+  }),
+});
+
+type FormValues = z.infer<typeof formSchema>;
 
 export function ContactForm() {
-  const [formData, setFormData] = useState<FormData>({
-    firstName: '',
-    lastName: '',
-    mobile: '',
-    message: ''
-  })
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle form submission here
-    console.log(formData)
-  }
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
+  });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }))
-  }
+  const onSubmit = async (data: FormValues) => {
+    setIsSubmitting(true);
+    try {
+      // Create mailto URL with form data
+      const mailtoUrl = `mailto:support@nexumcapitals.com?subject=${encodeURIComponent(
+        data.subject
+      )}&body=${encodeURIComponent(
+        `Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`
+      )}`;
+
+      // Open default email client
+      window.location.href = mailtoUrl;
+
+      // Reset form
+      reset();
+      toast.success("Email client opened successfully!");
+    } catch (error) {
+      toast.error("Failed to open email client. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
-    <section className="py-16 sm:py-20 md:py-24 bg-gray-50">
-      <div className="container mx-auto px-4 sm:px-6">
-        <motion.div 
-          className="max-w-3xl mx-auto text-center mb-10 sm:mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
-            Contact Us
-          </h1>
-          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-xl mx-auto">
-            Get in touch with our team and we'll get back to you shortly
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="max-w-2xl mx-auto"
-        >
-          <div className="bg-white rounded-lg sm:rounded-xl md:rounded-2xl shadow-md sm:shadow-lg md:shadow-xl p-6 sm:p-8 md:p-12">
-            <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
-              <div className="grid sm:grid-cols-2 gap-5 sm:gap-6">
-                <div className="space-y-2">
-                  <label htmlFor="firstName" className="text-sm font-medium text-gray-700">
-                    First Name
-                  </label>
-                  <div className="relative">
-                    <Input
-                      id="firstName"
-                      name="firstName"
-                      value={formData.firstName}
-                      onChange={handleChange}
-                      placeholder="John"
-                      className="pl-10 h-11 sm:h-12"
-                      required
-                    />
-                    <User className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <label htmlFor="lastName" className="text-sm font-medium text-gray-700">
-                    Last Name
-                  </label>
-                  <div className="relative">
-                    <Input
-                      id="lastName"
-                      name="lastName"
-                      value={formData.lastName}
-                      onChange={handleChange}
-                      placeholder="Doe"
-                      className="pl-10 h-11 sm:h-12"
-                      required
-                    />
-                    <User className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <label htmlFor="mobile" className="text-sm font-medium text-gray-700">
-                  Mobile Number
-                </label>
-                <div className="relative">
-                  <Input
-                    id="mobile"
-                    name="mobile"
-                    type="tel"
-                    value={formData.mobile}
-                    onChange={handleChange}
-                    placeholder="+1 (555) 000-0000"
-                    className="pl-10 h-11 sm:h-12"
-                    required
-                  />
-                  <Phone className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium text-gray-700">
-                  Message
-                </label>
-                <div className="relative">
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="How can we help you?"
-                    className="min-h-[120px] sm:min-h-[150px] pl-10 resize-none"
-                    required
-                  />
-                  <MessageSquare className="w-5 h-5 absolute left-3 top-4 text-gray-400" />
-                </div>
-              </div>
-
-              <Button 
-                type="submit" 
-                size="lg"
-                className="w-full h-11 sm:h-12 text-base sm:text-lg"
-              >
-                <Send className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-                Send Message
-              </Button>
-            </form>
+    <div className="bg-white rounded-lg shadow-md p-8">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+        <div className="space-y-4">
+          <div className="relative">
+            <Input
+              {...register("name")}
+              placeholder="Your Name"
+              className={`pl-10 ${errors.name ? "border-red-500" : ""}`}
+            />
+            {errors.name && (
+              <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+            )}
+            <User className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
           </div>
 
-          <motion.div 
-            className="mt-6 sm:mt-8 text-center text-sm sm:text-base text-gray-600 px-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            <p>
-              By submitting this form, you agree to our{' '}
-              <a href="/terms" className="text-primary hover:underline">
-                Terms of Service
-              </a>
-              {' '}and{' '}
-              <a href="/privacy" className="text-primary hover:underline">
-                Privacy Policy
-              </a>
-            </p>
-          </motion.div>
-        </motion.div>
-      </div>
-    </section>
-  )
-} 
+          <div className="relative">
+            <Input
+              {...register("email")}
+              type="email"
+              placeholder="Email Address"
+              className={`pl-10 ${errors.email ? "border-red-500" : ""}`}
+            />
+            {errors.email && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.email.message}
+              </p>
+            )}
+            <Mail className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+          </div>
+
+          <div className="relative">
+            <Input
+              {...register("subject")}
+              placeholder="Subject"
+              className={`pl-10 ${errors.subject ? "border-red-500" : ""}`}
+            />
+            {errors.subject && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.subject.message}
+              </p>
+            )}
+            <MessageSquare className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+          </div>
+
+          <div className="relative">
+            <Textarea
+              {...register("message")}
+              placeholder="Your Message"
+              className={`min-h-[150px] pl-10 ${
+                errors.message ? "border-red-500" : ""
+              }`}
+            />
+            {errors.message && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.message.message}
+              </p>
+            )}
+            <MessageSquare className="w-5 h-5 absolute left-3 top-4 text-gray-400" />
+          </div>
+        </div>
+
+        <Button type="submit" className="w-full" disabled={isSubmitting}>
+          {isSubmitting ? "Opening Email Client..." : "Send Message"}
+          <Send className="w-4 h-4 ml-2" />
+        </Button>
+      </form>
+    </div>
+  );
+}
