@@ -147,6 +147,21 @@ export function Footer() {
       <div className="bg-white border-t border-gray-200">
         <div className="container mx-auto px-4 py-8">
           <div className="space-y-6">
+            {/* License Information */}
+            <div className="flex flex-col items-start gap-2">
+              <div className="flex items-center gap-2">
+                <Shield className="w-5 h-5 text-primary" />
+                <span className="font-semibold text-gray-700">
+                  Regulatory Information
+                </span>
+              </div>
+              <p className="text-sm text-gray-500 ml-7">
+                Nexum Capitals is licensed and regulated by the Financial
+                Services Regulatory Authority (FSRA) of Saint Lucia under
+                license number 2025-00012.
+              </p>
+            </div>
+
             {/* Risk Statement */}
             <div className="flex items-start gap-3">
               <FileText className="w-5 h-5 shrink-0 text-primary mt-1" />
