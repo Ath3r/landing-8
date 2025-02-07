@@ -1,0 +1,44 @@
+{
+  "news": [
+    {
+      "id": 1,
+      "title": "Market Analysis: EUR/USD Technical Outlook",
+      "description": "In-depth analysis of EUR/USD pair showing potential breakout patterns and key resistance levels to watch.",
+      "category": "Market Analysis",
+      "date": "2025-02-07",
+      "imageUrl": "/images/news/market-analysis.jpg",
+      "author": "John Smith",
+      "readTime": "5 min read"
+    },
+    {
+      "id": 2,
+      "title": "Gold Trading Strategies for 2025",
+      "description": "Comprehensive guide on gold trading strategies, including technical analysis and fundamental factors affecting prices.",
+      "category": "Trading Strategies",
+      "date": "2025-02-06",
+      "imageUrl": "/images/news/gold-trading.jpg",
+      "author": "Sarah Johnson",
+      "readTime": "7 min read"
+    },
+    {
+      "id": 3,
+      "title": "Cryptocurrency Market Update",
+      "description": "Latest updates on cryptocurrency market trends, including Bitcoin and Ethereum price analysis.",
+      "category": "Crypto",
+      "date": "2025-02-05",
+      "imageUrl": "/images/news/crypto-update.jpg",
+      "author": "Mike Chen",
+      "readTime": "4 min read"
+    },
+    {
+      "id": 4,
+      "title": "Understanding Risk Management",
+      "description": "Essential guide to risk management strategies for forex and CFD trading.",
+      "category": "Education",
+      "date": "2025-02-04",
+      "imageUrl": "/images/news/risk-management.jpg",
+      "author": "Emma Davis",
+      "readTime": "6 min read"
+    }
+  ]
+}

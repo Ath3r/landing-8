@@ -121,7 +121,7 @@ export function TradingInstruments() {
         >
           <Button
             size="lg"
-            className="bg-gray-900 hover:bg-gray-800 text-white font-bold px-8 h-12 text-lg rounded-full"
+            className="bg-secondary hover:bg-secondary/90 text-primary font-bold px-8 h-12 text-lg rounded-full"
           >
             Register Now
           </Button>

@@ -1,11 +1,11 @@
-'use client'
+"use client";
 
-import { motion } from "framer-motion"
-import Link from "next/link"
-import Image from "next/image"
-import { 
-  Building2, 
-  Mail, 
+import { motion } from "framer-motion";
+import Link from "next/link";
+import Image from "next/image";
+import {
+  Building2,
+  Mail,
   Phone,
   Shield,
   Globe,
@@ -13,8 +13,8 @@ import {
   Twitter,
   Linkedin,
   Facebook,
-  Instagram
-} from "lucide-react"
+  Instagram,
+} from "lucide-react";
 
 const footerLinks = {
   markets: [
@@ -34,8 +34,8 @@ const footerLinks = {
     { name: "Contact Us", href: "/contact" },
     { name: "Terms of Service", href: "/terms" },
     { name: "Privacy Policy", href: "/privacy" },
-  ]
-}
+  ],
+};
 
 export function Footer() {
   return (
@@ -46,28 +46,35 @@ export function Footer() {
           {/* Company Info */}
           <div className="space-y-6">
             <Link href="/" className="inline-block">
-              <span className="text-2xl font-bold text-white">Nexum Capitals</span>
+              <span className="text-3xl font-bold text-white hover:text-primary transition-colors">
+                Nexum Capitals
+              </span>
             </Link>
             <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <Building2 className="w-5 h-5 mt-1 shrink-0" />
-                <div>
+              <div className="flex items-start gap-3 group">
+                <Building2 className="w-6 h-6 mt-1 shrink-0 text-primary group-hover:text-white transition-colors" />
+                <div className="group-hover:text-white transition-colors">
                   <p className="font-medium text-white">Registered Office</p>
-                  <p>123 Trading Street</p>
-                  <p>Financial District</p>
-                  <p>London, EC1A 1BB</p>
-                  <p>United Kingdom</p>
+                  <p>Ground Floor, The Sotheby Building</p>
+                  <p>Rodney Village, Rodney Bay</p>
+                  <p>Gros-Islet, Saint Lucia</p>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
-                <Mail className="w-5 h-5 shrink-0" />
-                <a href="mailto:support@nexumcapitals.com" className="hover:text-white transition-colors">
+              <div className="flex items-center gap-3 group">
+                <Mail className="w-6 h-6 shrink-0 text-primary group-hover:text-white transition-colors" />
+                <a
+                  href="mailto:support@nexumcapitals.com"
+                  className="group-hover:text-white transition-colors"
+                >
                   support@nexumcapitals.com
                 </a>
               </div>
-              <div className="flex items-center gap-3">
-                <Phone className="w-5 h-5 shrink-0" />
-                <a href="tel:+442012345678" className="hover:text-white transition-colors">
+              <div className="flex items-center gap-3 group">
+                <Phone className="w-6 h-6 shrink-0 text-primary group-hover:text-white transition-colors" />
+                <a
+                  href="tel:+442012345678"
+                  className="group-hover:text-white transition-colors"
+                >
                   +44 20 1234 5678
                 </a>
               </div>
@@ -76,14 +83,17 @@ export function Footer() {
 
           {/* Markets */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-6">Markets</h3>
+            <h3 className="text-xl font-semibold text-white mb-6 border-b border-primary pb-2">
+              Markets
+            </h3>
             <ul className="space-y-4">
               {footerLinks.markets.map((link) => (
                 <li key={link.href}>
-                  <Link 
+                  <Link
                     href={link.href}
-                    className="hover:text-white transition-colors"
+                    className="hover:text-primary transition-colors flex items-center gap-2"
                   >
+                    <span className="w-1 h-1 bg-primary rounded-full"></span>
                     {link.name}
                   </Link>
                 </li>
@@ -93,14 +103,17 @@ export function Footer() {
 
           {/* Platforms */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-6">Platforms</h3>
+            <h3 className="text-xl font-semibold text-white mb-6 border-b border-primary pb-2">
+              Platforms
+            </h3>
             <ul className="space-y-4">
               {footerLinks.platforms.map((link) => (
                 <li key={link.href}>
-                  <Link 
+                  <Link
                     href={link.href}
-                    className="hover:text-white transition-colors"
+                    className="hover:text-primary transition-colors flex items-center gap-2"
                   >
+                    <span className="w-1 h-1 bg-primary rounded-full"></span>
                     {link.name}
                   </Link>
                 </li>
@@ -110,14 +123,17 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-6">Company</h3>
+            <h3 className="text-xl font-semibold text-white mb-6 border-b border-primary pb-2">
+              Company
+            </h3>
             <ul className="space-y-4">
               {footerLinks.company.map((link) => (
                 <li key={link.href}>
-                  <Link 
+                  <Link
                     href={link.href}
-                    className="hover:text-white transition-colors"
+                    className="hover:text-primary transition-colors flex items-center gap-2"
                   >
+                    <span className="w-1 h-1 bg-primary rounded-full"></span>
                     {link.name}
                   </Link>
                 </li>
@@ -128,40 +144,56 @@ export function Footer() {
       </div>
 
       {/* Legal Footer */}
-      <div className="border-t border-gray-800">
+      <div className="bg-white border-t border-gray-200">
         <div className="container mx-auto px-4 py-8">
           <div className="space-y-6">
-            {/* Registration Info */}
-            <div className="flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
-              <div className="flex items-center gap-3">
-                <Shield className="w-5 h-5 text-primary" />
-                <p>
-                  Nexum Capitals Limited is registered in England and Wales (Company No. 12345678)
-                </p>
-              </div>
-              <div className="flex items-center gap-3">
-                <Globe className="w-5 h-5 text-primary" />
-                <p>
-                  Authorized and regulated by the Financial Conduct Authority (FCA No. 123456)
-                </p>
-              </div>
-            </div>
-
-            {/* Risk Warning */}
+            {/* Risk Statement */}
             <div className="flex items-start gap-3">
               <FileText className="w-5 h-5 shrink-0 text-primary mt-1" />
-              <p className="text-sm">
-                Risk Warning: Trading CFDs and other leveraged products carries a high level of risk to your capital and may not be suitable for all investors. Please ensure that you fully understand the risks involved and seek independent advice if necessary. Past performance is not indicative of future results.
-              </p>
+              <div className="space-y-4">
+                <p className="text-sm text-gray-500">
+                  An investment in derivatives may mean investors may lose an
+                  amount even greater than their original investment. Anyone
+                  wishing to invest in any of the products mentioned in Nexum
+                  Capitals should seek their own financial or professional
+                  advice. Trading of securities, forex, stock market,
+                  commodities, options and futures may not be suitable for
+                  everyone and involves the risk of losing part or all of your
+                  money. Trading in the financial markets has large potential
+                  rewards, but also large potential risk. You must be aware of
+                  the risks and be willing to accept them in order to invest in
+                  the markets. Don't invest and trade with money which you can't
+                  afford to lose. Forex Trading are not allowed in some
+                  countries, before investing your money, make sure whether your
+                  country is allowing this or not.
+                </p>
+                <p className="text-sm text-gray-500">
+                  You are strongly advised to obtain independent financial,
+                  legal and tax advice before proceeding with any currency or
+                  spot metals trade. Nothing in this site should be read or
+                  construed as constituting advice on the part of Nexum Capitals
+                  or any of its affiliates, directors, officers or employees.
+                </p>
+                <p className="text-sm text-gray-500">
+                  <span className="font-medium">Restricted Regions:</span> Nexum
+                  Capitals does not provide services for citizens/residents of
+                  the United States, Cuba, Iraq, Myanmar, North Korea, Sudan.
+                  The services of Nexum Capitals are not intended for
+                  distribution to, or use by, any person in any country or
+                  jurisdiction where such distribution or use would be contrary
+                  to local law or regulation.
+                </p>
+              </div>
             </div>
 
             {/* Copyright */}
-            <div className="text-sm text-center pt-4 border-t border-gray-800">
-              © {new Date().getFullYear()} Nexum Capitals Limited. All rights reserved.
+            <div className="text-sm text-center pt-4 border-t border-gray-100 text-gray-400">
+              &copy; {new Date().getFullYear()} Nexum Capitals. All rights
+              reserved.
             </div>
           </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }

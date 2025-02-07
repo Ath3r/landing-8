@@ -5,56 +5,38 @@ import { motion } from "framer-motion";
 
 export function TeamSection() {
   return (
-    <section className="bg-gray-900 relative overflow-hidden">
-      <div className="container mx-auto px-4 py-32">
-        <div className="max-w-6xl mx-auto relative">
-          {/* Content */}
+    <section className="relative overflow-hidden bg-[#0E1116]">
+      <div className="container mx-auto px-4 py-24">
+        <div className="max-w-4xl">
           <motion.div
-            className="max-w-xl relative z-10"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            className="space-y-6"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Nexum Capitals Trading Team
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white">
+              Trade with a trusted broker today
             </h2>
-            <p className="text-xl text-gray-300 mb-8">
-              Join our community of expert traders from across the globe. Learn
-              from their strategies, insights, and years of market experience.
+            <p className="text-lg sm:text-xl text-gray-400 max-w-2xl">
+              See for yourself why we are the broker of choice for over all
+              traders and our partners.
             </p>
-            <Button
-              size="lg"
-              className="bg-secondary hover:bg-secondary/90 text-primary font-semibold px-8"
-            >
-              Join Our Team
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <Button
+                size="lg"
+                className="bg-[#FFD700] hover:bg-[#FFD700]/90 text-black font-bold px-8 rounded-lg text-lg"
+              >
+                Register
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-gray-700  text-primary hover:text-white hover:bg-white/5 font-bold px-8 rounded-lg text-lg"
+              >
+                Try free demo
+              </Button>
+            </div>
           </motion.div>
-
-          {/* Abstract Background Design */}
-          <div className="absolute top-1/2 right-0 transform -translate-y-1/2">
-            <motion.div
-              initial={{ opacity: 0, rotate: -90 }}
-              whileInView={{ opacity: 0.15, rotate: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1 }}
-              className="relative"
-            >
-              {/* Create abstract arrow pattern */}
-              <div className="relative w-[600px] h-[600px]">
-                {[...Array(8)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="absolute top-1/2 left-1/2 w-48 h-24 bg-white"
-                    style={{
-                      transform: `rotate(${i * 45}deg) translateX(120px)`,
-                      clipPath: "polygon(0 0, 100% 0, 85% 100%, 15% 100%)",
-                      opacity: 0.1,
-                    }}
-                  />
-                ))}
-              </div>
-            </motion.div>
-          </div>
         </div>
       </div>
     </section>
