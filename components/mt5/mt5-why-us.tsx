@@ -27,7 +27,7 @@ const features = [
 
 export function MT5WhyUs() {
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="py-24 bg-white">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -35,7 +35,7 @@ export function MT5WhyUs() {
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4">Why Exness</h2>
+          <h2 className="text-4xl font-bold mb-4 text-gray-900">Why Exness</h2>
           <p className="text-xl text-gray-600">
             Better-than-market conditions, unique features and cutting-edge security, partnered with our dedication to
             transparency and excellent customer service, are the reasons traders continue to choose Exness.
@@ -51,10 +51,14 @@ export function MT5WhyUs() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <Card className="h-full bg-gray-100 border-0">
+              <Card className="h-full group hover:border-secondary/50 transition-colors">
                 <CardContent className="p-6">
-                  <feature.icon className="w-10 h-10 mb-4 text-primary" />
-                  <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
+                  <div className="p-3 bg-secondary/10 rounded-lg w-fit mb-4 group-hover:bg-secondary/20 transition-colors">
+                    <feature.icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-2 text-gray-900 group-hover:text-primary transition-colors">
+                    {feature.title}
+                  </h3>
                   <p className="text-gray-600">{feature.description}</p>
                 </CardContent>
               </Card>
@@ -65,4 +69,3 @@ export function MT5WhyUs() {
     </section>
   )
 }
-

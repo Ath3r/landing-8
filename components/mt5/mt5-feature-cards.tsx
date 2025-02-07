@@ -33,7 +33,7 @@ const features = [
 
 export function MT5FeatureCards() {
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="py-24 bg-white">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {features.map((feature, index) => (
@@ -44,10 +44,12 @@ export function MT5FeatureCards() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <Card className="h-full">
+              <Card className="h-full group hover:border-secondary/50 transition-colors">
                 <CardContent className="p-6">
-                  <feature.icon className="w-10 h-10 mb-4 text-primary" />
-                  <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
+                  <div className="p-3 bg-secondary/10 rounded-lg w-fit mb-4 group-hover:bg-secondary/20 transition-colors">
+                    <feature.icon className="w-8 h-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-2 text-gray-900 group-hover:text-primary transition-colors">{feature.title}</h3>
                   <p className="text-gray-600">{feature.description}</p>
                 </CardContent>
               </Card>
@@ -58,4 +60,3 @@ export function MT5FeatureCards() {
     </section>
   )
 }
-

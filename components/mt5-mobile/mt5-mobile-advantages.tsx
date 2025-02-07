@@ -10,22 +10,22 @@ import {
 
 const advantages = [
   {
-    icon: <Shield className="w-8 h-8" />,
+    icon: <Shield className="w-6 h-6 text-primary" />,
     title: "Secure Trading",
     description: "Enhanced security with biometric authentication and encrypted data"
   },
   {
-    icon: <Zap className="w-8 h-8" />,
+    icon: <Zap className="w-6 h-6 text-primary" />,
     title: "Fast Execution",
     description: "Lightning-fast trade execution optimized for mobile networks"
   },
   {
-    icon: <Clock className="w-8 h-8" />,
+    icon: <Clock className="w-6 h-6 text-primary" />,
     title: "24/7 Access",
     description: "Trade and monitor your positions anytime, anywhere"
   },
   {
-    icon: <Smartphone className="w-8 h-8" />,
+    icon: <Smartphone className="w-6 h-6 text-primary" />,
     title: "Native App",
     description: "Optimized performance with native iOS and Android development"
   }
@@ -33,42 +33,40 @@ const advantages = [
 
 export function MT5MobileAdvantages() {
   return (
-    <section className="py-32 bg-gradient-to-b from-gray-950 to-black">
+    <section className="py-24 bg-white">
       <div className="container mx-auto px-4">
         <motion.div 
-          className="text-center mb-20"
+          className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
             Why Choose MT5 Mobile
           </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Experience the power of MetaTrader 5 on your mobile device
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {advantages.map((advantage, index) => (
             <motion.div
-              key={index}
+              key={advantage.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group bg-gray-900 p-8 rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.2)] hover:shadow-[0_0_50px_rgba(255,255,255,0.1)] transition-all duration-300 hover:-translate-y-1"
+              transition={{ delay: index * 0.1 }}
+              className="bg-white p-6 rounded-xl border border-gray-200 hover:border-secondary/50 transition-colors group"
             >
-              <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <div className="text-white">
-                  {advantage.icon}
-                </div>
+              <div className="p-3 bg-secondary/10 rounded-lg w-fit mb-4 group-hover:bg-secondary/20 transition-colors">
+                {advantage.icon}
               </div>
-              <h3 className="text-2xl font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+              <h3 className="text-xl font-bold mb-2 text-gray-900 group-hover:text-primary transition-colors">
                 {advantage.title}
               </h3>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-600">
                 {advantage.description}
               </p>
             </motion.div>
@@ -77,4 +75,4 @@ export function MT5MobileAdvantages() {
       </div>
     </section>
   )
-} 
+}
