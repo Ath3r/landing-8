@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import Image from "next/image"
-import { Download, ArrowRight } from "lucide-react"
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import { Download, ArrowRight } from "lucide-react";
 
 export function MT5Hero() {
   return (
@@ -32,14 +32,24 @@ export function MT5Hero() {
               MetaTrader 5
             </h1>
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Experience professional-grade trading with MetaTrader 5. A powerful platform that puts the global financial markets at your fingertips, offering advanced tools for CFDs, forex, stocks, and more.
+              Experience professional-grade trading with MetaTrader 5. A
+              powerful platform that puts the global financial markets at your
+              fingertips, offering advanced tools for CFDs, forex, stocks, and
+              more.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-primary font-semibold px-8 py-6">
+              <Button
+                size="lg"
+                className="bg-secondary hover:bg-secondary/90 text-primary font-semibold px-8 py-6"
+              >
                 <Download className="w-5 h-5 mr-2" />
                 Download MT5
               </Button>
-              <Button size="lg" variant="outline" className="border-gray-300 hover:bg-gray-100 text-gray-900 px-8 py-6">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-gray-300 hover:bg-gray-100 text-gray-900 px-8 py-6"
+              >
                 Learn More
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
@@ -53,16 +63,16 @@ export function MT5Hero() {
             className="relative"
           >
             <Image
-              src="/mt5-platform.jpg"
+              src="https://acy.com/images/platformPage/metatrader-5-trading-platform-with-mobile.png"
               alt="MetaTrader 5 Trading Platform"
               width={800}
               height={500}
-              className="rounded-xl shadow-xl"
+              className="rounded-xl"
               priority
             />
           </motion.div>
         </div>
       </div>
     </section>
-  )
+  );
 }

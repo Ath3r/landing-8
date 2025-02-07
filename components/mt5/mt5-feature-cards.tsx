@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Code2, ArrowLeftRight, BarChart3, LineChart } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
+import { motion } from "framer-motion";
+import { Code2, ArrowLeftRight, BarChart3, LineChart } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
 const features = [
   {
@@ -15,7 +15,7 @@ const features = [
     icon: ArrowLeftRight,
     title: "Hedging system",
     description:
-      "In MetaTrader 5 with Exness, you can experience trading using the hedging mode system. Hedging allows you to open multiple positions, even exact opposite positions, for a trading instrument.",
+      "In MetaTrader 5 with us, you can experience trading using the hedging mode system. Hedging allows you to open multiple positions, even exact opposite positions, for a trading instrument.",
   },
   {
     icon: BarChart3,
@@ -29,7 +29,7 @@ const features = [
     description:
       "Enhance your trading experience with 38 built-in indicators, 22 analytical tools and 46 graphical objects when you trade financial instruments in the trading platform.",
   },
-]
+];
 
 export function MT5FeatureCards() {
   return (
@@ -49,7 +49,9 @@ export function MT5FeatureCards() {
                   <div className="p-3 bg-secondary/10 rounded-lg w-fit mb-4 group-hover:bg-secondary/20 transition-colors">
                     <feature.icon className="w-8 h-8 text-primary" />
                   </div>
-                  <h3 className="text-xl font-bold mb-2 text-gray-900 group-hover:text-primary transition-colors">{feature.title}</h3>
+                  <h3 className="text-xl font-bold mb-2 text-gray-900 group-hover:text-primary transition-colors">
+                    {feature.title}
+                  </h3>
                   <p className="text-gray-600">{feature.description}</p>
                 </CardContent>
               </Card>
@@ -58,5 +60,5 @@ export function MT5FeatureCards() {
         </div>
       </div>
     </section>
-  )
+  );
 }

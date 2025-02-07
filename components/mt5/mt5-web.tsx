@@ -1,38 +1,32 @@
-'use client'
+"use client";
 
-import { motion } from "framer-motion"
-import { 
-  Monitor,
-  BarChart,
-  Settings,
-  Layout,
-  ArrowRight
-} from "lucide-react"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
+import { motion } from "framer-motion";
+import { Monitor, BarChart, Settings, Layout, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 const features = [
   {
     icon: <Monitor className="w-6 h-6 text-primary" />,
     title: "Web Platform",
-    description: "Trade directly from your browser without downloads"
+    description: "Trade directly from your browser without downloads",
   },
   {
     icon: <BarChart className="w-6 h-6 text-primary" />,
     title: "Advanced Analysis",
-    description: "Professional tools and indicators for analysis"
+    description: "Professional tools and indicators for analysis",
   },
   {
     icon: <Settings className="w-6 h-6 text-primary" />,
     title: "Customizable",
-    description: "Personalize your trading workspace"
+    description: "Personalize your trading workspace",
   },
   {
     icon: <Layout className="w-6 h-6 text-primary" />,
     title: "Multi-Layout",
-    description: "Multiple chart layouts and workspaces"
-  }
-]
+    description: "Multiple chart layouts and workspaces",
+  },
+];
 
 export function MT5Web() {
   return (
@@ -47,7 +41,7 @@ export function MT5Web() {
             className="relative"
           >
             <Image
-              src="/mt5-web.jpg"
+              src="https://www.metatrader5.com/c/17/0/webterminal__593e9d19y1u.png"
               alt="MT5 Web Platform"
               width={800}
               height={600}
@@ -90,7 +84,10 @@ export function MT5Web() {
               ))}
             </div>
 
-            <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-primary font-semibold px-8">
+            <Button
+              size="lg"
+              className="bg-secondary hover:bg-secondary/90 text-primary font-semibold px-8"
+            >
               Launch Web Platform
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
@@ -98,5 +95,5 @@ export function MT5Web() {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -75,7 +75,7 @@ export function Footer() {
                   href="tel:+442012345678"
                   className="group-hover:text-secondary transition-colors"
                 >
-                  +44 20 1234 5678
+                  +44 74 6228 1389
                 </a>
               </div>
             </div>

@@ -1,39 +1,45 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { ChevronRight, DollarSign, Coins, Droplet, LineChart } from "lucide-react"
-import Link from "next/link"
+import { motion } from "framer-motion";
+import {
+  ChevronRight,
+  DollarSign,
+  Coins,
+  Droplet,
+  LineChart,
+} from "lucide-react";
+import Link from "next/link";
 
 const instruments = [
   {
     icon: DollarSign,
     title: "Forex",
     description:
-      "There are more than 100 currency pairs available for CFD trading on MT5 in Exness. We offer major currency pairs, including EURUSD, GBPUSD and USDJPY, and minor currency pairs. There is also a long list of exotic pairs available for you to trade CFDs on.",
+      "There are more than 100 currency pairs available for CFD trading on MT5 in us. We offer major currency pairs, including EURUSD, GBPUSD and USDJPY, and minor currency pairs. There is also a long list of exotic pairs available for you to trade CFDs on.",
     href: "/markets/forex",
   },
   {
     icon: Coins,
     title: "Metals",
     description:
-      "On MT5 with Exness, you can trade CFDs on metals in the form of currency pairs, which include XAUUSD, XAUEUR, XAUGBP and XAUAUD for gold and XAGUSD, XAGEUR, XAGGBP and XAGAUD for silver. You can also trade on platinum (XPT) and palladium (XPD) in currency pairs.",
+      "On MT5 with us, you can trade CFDs on metals in the form of currency pairs, which include XAUUSD, XAUEUR, XAUGBP and XAUAUD for gold and XAGUSD, XAGEUR, XAGGBP and XAGAUD for silver. You can also trade on platinum (XPT) and palladium (XPD) in currency pairs.",
     href: "/markets/metals",
   },
   {
     icon: Droplet,
     title: "Energies",
     description:
-      "Hedge your portfolio on MT5 with Exness and trade CFDs on popular energies like brent crude oil (UKOIL), crude oil (USOIL) and natural gas (XNGUSD) with better-than-market conditions.",
+      "Hedge your portfolio on MT5 with us and trade CFDs on popular energies like brent crude oil (UKOIL), crude oil (USOIL) and natural gas (XNGUSD) with better-than-market conditions.",
     href: "/markets/energies",
   },
   {
     icon: LineChart,
     title: "Stocks",
     description:
-      "Gain exposure to a large selection of stock CFDs while trading on MT5 with Exness. Trade CFDs on stocks from different industries, such as technology (APPL, META), consumer discretionary (TSLA), consumer staples (KO) and others.",
+      "Gain exposure to a large selection of stock CFDs while trading on MT5 with us. Trade CFDs on stocks from different industries, such as technology (APPL, META), consumer discretionary (TSLA), consumer staples (KO) and others.",
     href: "/markets/stocks",
   },
-]
+];
 
 export function MT5TradingInstruments() {
   return (
@@ -45,10 +51,13 @@ export function MT5TradingInstruments() {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto mb-16 text-center"
         >
-          <h2 className="text-4xl font-bold mb-4 text-gray-900">What You Can Trade on MT5</h2>
+          <h2 className="text-4xl font-bold mb-4 text-gray-900">
+            What You Can Trade on MT5
+          </h2>
           <p className="text-xl text-gray-600">
-            At Exness, you can enjoy trading CFDs on more than 200 instruments, which include trading forex currency
-            pairs, metals, cryptocurrencies, stocks, indices and energies.
+            At us, you can enjoy trading CFDs on more than 200 instruments,
+            which include trading forex currency pairs, metals,
+            cryptocurrencies, stocks, indices and energies.
           </p>
         </motion.div>
 
@@ -85,5 +94,5 @@ export function MT5TradingInstruments() {
         </div>
       </div>
     </section>
-  )
+  );
 }

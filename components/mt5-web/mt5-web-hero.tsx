@@ -1,9 +1,9 @@
-'use client'
+"use client";
 
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
-import Image from "next/image"
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 export function MT5WebHero() {
   return (
@@ -22,7 +22,7 @@ export function MT5WebHero() {
 
       <div className="container mx-auto px-4 relative">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div 
+          <motion.div
             className="max-w-2xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -34,7 +34,10 @@ export function MT5WebHero() {
             <p className="text-xl text-gray-600 mb-8">
               Trade directly from your browser with our advanced web platform
             </p>
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-6">
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-6"
+            >
               Launch Web Platform
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
@@ -46,16 +49,16 @@ export function MT5WebHero() {
             className="relative"
           >
             <Image
-              src="/mt5-web-platform.jpg"
+              src="https://www.metatrader5.com/i/web-trading/web-trading-main_2x.jpg"
               alt="MT5 Web Platform"
               width={800}
               height={600}
-              className="rounded-xl shadow-xl"
+              className="rounded-xl"
               priority
             />
           </motion.div>
         </div>
       </div>
     </section>
-  )
+  );
 }

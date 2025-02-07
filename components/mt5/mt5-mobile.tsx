@@ -1,38 +1,32 @@
-'use client'
+"use client";
 
-import { motion } from "framer-motion"
-import { 
-  Smartphone,
-  Zap,
-  Globe,
-  LineChart,
-  ArrowRight
-} from "lucide-react"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
+import { motion } from "framer-motion";
+import { Smartphone, Zap, Globe, LineChart, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 const features = [
   {
     icon: <Smartphone className="w-6 h-6 text-primary" />,
     title: "Mobile Trading",
-    description: "Trade on-the-go with our powerful mobile application"
+    description: "Trade on-the-go with our powerful mobile application",
   },
   {
     icon: <Zap className="w-6 h-6 text-primary" />,
     title: "Fast Execution",
-    description: "Experience lightning-fast trade execution on mobile"
+    description: "Experience lightning-fast trade execution on mobile",
   },
   {
     icon: <Globe className="w-6 h-6 text-primary" />,
     title: "Global Access",
-    description: "Access markets worldwide from your smartphone"
+    description: "Access markets worldwide from your smartphone",
   },
   {
     icon: <LineChart className="w-6 h-6 text-primary" />,
     title: "Advanced Charts",
-    description: "Professional charting tools in your pocket"
-  }
-]
+    description: "Professional charting tools in your pocket",
+  },
+];
 
 export function MT5Mobile() {
   return (
@@ -74,11 +68,18 @@ export function MT5Mobile() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-primary font-semibold px-8">
+              <Button
+                size="lg"
+                className="bg-secondary hover:bg-secondary/90 text-primary font-semibold px-8"
+              >
                 Download for iOS
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-              <Button size="lg" variant="outline" className="border-gray-300 hover:bg-gray-100 text-gray-900">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-gray-300 hover:bg-gray-100 text-gray-900"
+              >
                 Download for Android
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
@@ -93,16 +94,16 @@ export function MT5Mobile() {
             className="relative lg:order-last"
           >
             <Image
-              src="/mt5-mobile.jpg"
+              src="https://www.forex.com/en-us/-/media/project/gain-capital/forex/feature-images/platforms/metatrader/mt4/fxus-mt4-mobile-trading.png"
               alt="MetaTrader 5 Mobile App"
               width={600}
               height={800}
-              className="rounded-xl shadow-xl mx-auto"
+              className="rounded-xl mx-auto"
               priority
             />
           </motion.div>
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,9 +1,9 @@
-'use client'
+"use client";
 
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
-import Image from "next/image"
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 export function MT5WebPlatform() {
   return (
@@ -22,7 +22,7 @@ export function MT5WebPlatform() {
 
       <div className="container mx-auto px-4 relative">
         <div className="max-w-5xl mx-auto">
-          <motion.div 
+          <motion.div
             className="text-center mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -35,7 +35,10 @@ export function MT5WebPlatform() {
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
               Access the markets directly from your browser
             </p>
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-6">
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-6"
+            >
               Launch Web Platform
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
@@ -49,16 +52,17 @@ export function MT5WebPlatform() {
             className="relative"
           >
             <Image
-              src="/mt5-web-platform.jpg"
+              src="https://www.icmarkets.com/assets/images/mt5.webp"
               alt="MT5 Web Platform"
               width={1200}
-              height={675}
-              className="rounded-xl shadow-xl"
+              height={375}
+              className="rounded-xl"
               priority
+              quality={100}
             />
           </motion.div>
         </div>
       </div>
     </section>
-  )
+  );
 }

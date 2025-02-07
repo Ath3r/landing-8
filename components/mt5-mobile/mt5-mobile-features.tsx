@@ -1,48 +1,43 @@
-'use client'
+"use client";
 
-import { motion } from "framer-motion"
-import { 
-  Smartphone,
-  Zap,
-  ChartBar,
-  Globe,
-  Bell,
-  Lock
-} from "lucide-react"
-import Image from "next/image"
+import { motion } from "framer-motion";
+import { Smartphone, Zap, ChartBar, Globe, Bell, Lock } from "lucide-react";
+import Image from "next/image";
 
 const features = [
   {
     icon: <ChartBar className="w-6 h-6 text-primary" />,
     title: "Advanced Charts",
-    description: "Professional charting with multiple timeframes and technical indicators"
+    description:
+      "Professional charting with multiple timeframes and technical indicators",
   },
   {
     icon: <Bell className="w-6 h-6 text-primary" />,
     title: "Price Alerts",
-    description: "Real-time notifications for your preferred price levels"
+    description: "Real-time notifications for your preferred price levels",
   },
   {
     icon: <Zap className="w-6 h-6 text-primary" />,
     title: "Quick Trading",
-    description: "Execute trades with one tap using our optimized mobile interface"
+    description:
+      "Execute trades with one tap using our optimized mobile interface",
   },
   {
     icon: <Lock className="w-6 h-6 text-primary" />,
     title: "Secure Access",
-    description: "Enhanced security with biometric authentication"
+    description: "Enhanced security with biometric authentication",
   },
   {
     icon: <Globe className="w-6 h-6 text-primary" />,
     title: "Global Markets",
-    description: "Access worldwide markets from your mobile device"
+    description: "Access worldwide markets from your mobile device",
   },
   {
     icon: <Smartphone className="w-6 h-6 text-primary" />,
     title: "Cross Platform",
-    description: "Seamless sync between mobile and desktop platforms"
-  }
-]
+    description: "Seamless sync between mobile and desktop platforms",
+  },
+];
 
 export function MT5MobileFeatures() {
   return (
@@ -57,11 +52,11 @@ export function MT5MobileFeatures() {
             className="relative"
           >
             <Image
-              src="/mt5-mobile-features.jpg"
+              src="https://cdn.nwe.io/files/x/1a/6b/04b8d7a8e54686d5431facc907d2.jpg"
               alt="MT5 Mobile Features"
               width={600}
               height={800}
-              className="rounded-xl shadow-xl mx-auto"
+              className="rounded-xl mx-auto"
               priority
             />
           </motion.div>
@@ -77,7 +72,8 @@ export function MT5MobileFeatures() {
                 Advanced Mobile Trading Features
               </h2>
               <p className="text-xl text-gray-600 mb-12">
-                Experience professional-grade trading tools in the palm of your hand
+                Experience professional-grade trading tools in the palm of your
+                hand
               </p>
             </motion.div>
 
@@ -109,5 +105,5 @@ export function MT5MobileFeatures() {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,8 +1,8 @@
-'use client'
+"use client";
 
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 export function MT5MobileHero() {
   return (
@@ -21,7 +21,7 @@ export function MT5MobileHero() {
 
       <div className="container mx-auto px-4 relative">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <motion.div 
+          <motion.div
             className="max-w-2xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -31,14 +31,22 @@ export function MT5MobileHero() {
               MT5 Mobile Trading
             </h1>
             <p className="text-xl text-gray-600 mb-8">
-              Experience professional trading on your mobile device with MetaTrader 5
+              Experience professional trading on your mobile device with
+              MetaTrader 5
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-primary font-semibold px-8 py-6">
+              <Button
+                size="lg"
+                className="bg-secondary hover:bg-secondary/90 text-primary font-semibold px-8 py-6"
+              >
                 Download for iOS
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-              <Button size="lg" variant="outline" className="border-gray-300 hover:bg-gray-100 text-gray-900 px-8 py-6">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-gray-300 hover:bg-gray-100 text-gray-900 px-8 py-6"
+              >
                 Download for Android
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
@@ -51,14 +59,14 @@ export function MT5MobileHero() {
             className="relative"
           >
             <img
-              src="/mt5-mobile-hero.jpg"
+              src="https://www.forex.com/en-us/-/media/project/gain-capital/forex/feature-images/platforms/metatrader/mt4/fxus-mt4-mobile-trading.png"
               alt="MT5 Mobile Platform"
-              className="rounded-xl shadow-xl mx-auto"
-              style={{ maxWidth: '100%', height: 'auto' }}
+              className="rounded-xl mx-auto"
+              style={{ maxWidth: "100%", height: "auto" }}
             />
           </motion.div>
         </div>
       </div>
     </section>
-  )
+  );
 }

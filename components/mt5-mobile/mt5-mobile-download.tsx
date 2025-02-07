@@ -1,8 +1,8 @@
-'use client'
+"use client";
 
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 export function MT5MobileDownload() {
   return (
@@ -21,7 +21,7 @@ export function MT5MobileDownload() {
 
       <div className="container mx-auto px-4 relative">
         <div className="max-w-5xl mx-auto">
-          <motion.div 
+          <motion.div
             className="text-center mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -45,22 +45,33 @@ export function MT5MobileDownload() {
               className="space-y-8"
             >
               <div className="space-y-4">
-                <h3 className="text-2xl font-semibold text-gray-900">iOS App</h3>
+                <h3 className="text-2xl font-semibold text-gray-900">
+                  iOS App
+                </h3>
                 <p className="text-gray-600">
                   Download MT5 for iPhone and iPad
                 </p>
-                <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-primary font-semibold px-8 py-6">
+                <Button
+                  size="lg"
+                  className="bg-secondary hover:bg-secondary/90 text-primary font-semibold px-8 py-6"
+                >
                   Download for iOS
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </div>
 
               <div className="space-y-4">
-                <h3 className="text-2xl font-semibold text-gray-900">Android App</h3>
+                <h3 className="text-2xl font-semibold text-gray-900">
+                  Android App
+                </h3>
                 <p className="text-gray-600">
                   Download MT5 for Android devices
                 </p>
-                <Button size="lg" variant="outline" className="border-gray-300 hover:bg-gray-100 text-gray-900 px-8 py-6">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-gray-300 hover:bg-gray-100 text-gray-900 px-8 py-6"
+                >
                   Download for Android
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
@@ -75,15 +86,15 @@ export function MT5MobileDownload() {
               className="relative"
             >
               <img
-                src="/mt5-mobile-devices.jpg"
+                src="https://www.metatrader5.com/i/web-trading/web-trading-main_2x.jpg"
                 alt="MT5 Mobile Apps"
-                className="rounded-xl shadow-xl mx-auto"
-                style={{ maxWidth: '100%', height: 'auto' }}
+                className="rounded-xl mx-auto"
+                style={{ maxWidth: "100%", height: "auto" }}
               />
             </motion.div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

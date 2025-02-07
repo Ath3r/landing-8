@@ -3,7 +3,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Contact Us | Nexum Capitals",
-  description: "Get in touch with our team for any inquiries about our trading services, platforms, or support.",
+  description:
+    "Get in touch with our team for any inquiries about our trading services, platforms, or support.",
 };
 
 export default function ContactPage() {
@@ -23,12 +24,14 @@ export default function ContactPage() {
               <div>
                 <h2 className="text-2xl font-semibold mb-4">Get in Touch</h2>
                 <p className="text-gray-600">
-                  Our dedicated team is here to assist you with any inquiries about
-                  our trading services, platforms, or support needs.
+                  Our dedicated team is here to assist you with any inquiries
+                  about our trading services, platforms, or support needs.
                 </p>
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-3">Contact Information</h3>
+                <h3 className="text-xl font-semibold mb-3">
+                  Contact Information
+                </h3>
                 <div className="space-y-4">
                   <div>
                     <a
@@ -49,7 +52,7 @@ export default function ContactPage() {
                       <span className="w-5 h-5 bg-primary/10 rounded-full flex items-center justify-center">
                         📞
                       </span>
-                      +44 20 1234 5678
+                      +44 74 6228 1389
                     </a>
                   </div>
                   <div className="flex items-start gap-2 text-gray-600">
@@ -70,7 +73,8 @@ export default function ContactPage() {
                   <p>Monday - Friday: 24/7</p>
                   <p>Saturday - Sunday: 24/7</p>
                   <p className="text-sm mt-2">
-                    Our support team is available around the clock to assist you.
+                    Our support team is available around the clock to assist
+                    you.
                   </p>
                 </div>
               </div>

@@ -1,48 +1,41 @@
-'use client'
+"use client";
 
-import { motion } from "framer-motion"
-import { 
-  Monitor,
-  BarChart,
-  Settings,
-  Layout,
-  Globe,
-  Zap
-} from "lucide-react"
-import Image from "next/image"
+import { motion } from "framer-motion";
+import { Monitor, BarChart, Settings, Layout, Globe, Zap } from "lucide-react";
+import Image from "next/image";
 
 const features = [
   {
     icon: <Monitor className="w-6 h-6 text-primary" />,
     title: "Browser-Based",
-    description: "Trade directly from your browser without downloads"
+    description: "Trade directly from your browser without downloads",
   },
   {
     icon: <BarChart className="w-6 h-6 text-primary" />,
     title: "Advanced Charts",
-    description: "Professional charting tools and indicators"
+    description: "Professional charting tools and indicators",
   },
   {
     icon: <Settings className="w-6 h-6 text-primary" />,
     title: "Customizable",
-    description: "Personalize your trading workspace"
+    description: "Personalize your trading workspace",
   },
   {
     icon: <Layout className="w-6 h-6 text-primary" />,
     title: "Multi-Layout",
-    description: "Multiple chart layouts and workspaces"
+    description: "Multiple chart layouts and workspaces",
   },
   {
     icon: <Globe className="w-6 h-6 text-primary" />,
     title: "Cross-Platform",
-    description: "Access your account from any device"
+    description: "Access your account from any device",
   },
   {
     icon: <Zap className="w-6 h-6 text-primary" />,
     title: "Fast Loading",
-    description: "Optimized performance for web browsers"
-  }
-]
+    description: "Optimized performance for web browsers",
+  },
+];
 
 export function MT5WebFeatures() {
   return (
@@ -98,7 +91,7 @@ export function MT5WebFeatures() {
             className="relative"
           >
             <Image
-              src="/mt5-web-features.jpg"
+              src="https://www.metatrader5.com/i/download/mt5-desktop_2x.jpg"
               alt="MT5 Web Features"
               width={800}
               height={600}
@@ -109,5 +102,5 @@ export function MT5WebFeatures() {
         </div>
       </div>
     </section>
-  )
+  );
 }

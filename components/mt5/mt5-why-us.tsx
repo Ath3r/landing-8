@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { ArrowDownToLine, Zap, Shield } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
+import { motion } from "framer-motion";
+import { ArrowDownToLine, Zap, Shield } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
 const features = [
   {
@@ -15,15 +15,15 @@ const features = [
     icon: Zap,
     title: "Ultra-fast execution",
     description:
-      "Stay ahead of trends with lightning-fast execution. Get your orders executed in milliseconds on all available platforms at Exness.",
+      "Stay ahead of trends with lightning-fast execution. Get your orders executed in milliseconds on all available platforms at us.",
   },
   {
     icon: Shield,
     title: "Stop Out Protection",
     description:
-      "Enjoy our unique Stop Out Protection feature. Delay and sometimes completely avoid stop outs while trading with Exness.",
+      "Enjoy our unique Stop Out Protection feature. Delay and sometimes completely avoid stop outs while trading with us.",
   },
-]
+];
 
 export function MT5WhyUs() {
   return (
@@ -35,10 +35,12 @@ export function MT5WhyUs() {
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4 text-gray-900">Why Exness</h2>
+          <h2 className="text-4xl font-bold mb-4 text-gray-900">Why us</h2>
           <p className="text-xl text-gray-600">
-            Better-than-market conditions, unique features and cutting-edge security, partnered with our dedication to
-            transparency and excellent customer service, are the reasons traders continue to choose Exness.
+            Better-than-market conditions, unique features and cutting-edge
+            security, partnered with our dedication to transparency and
+            excellent customer service, are the reasons traders continue to
+            choose us.
           </p>
         </motion.div>
 
@@ -67,5 +69,5 @@ export function MT5WhyUs() {
         </div>
       </div>
     </section>
-  )
+  );
 }
