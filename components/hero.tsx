@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useRef, useEffect } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -21,116 +22,67 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
-export function RetroGrid({
-  className,
-  angle = 65,
-}: {
-  className?: string;
-  angle?: number;
-}) {
-  return (
-    <div
-      className={cn(
-        "pointer-events-none absolute size-full overflow-hidden opacity-50 [perspective:200px]",
-        className
-      )}
-      style={{ "--grid-angle": `${angle}deg` } as React.CSSProperties}
-    >
-      {/* Grid */}
-      <div className="absolute inset-0 [transform:rotateX(var(--grid-angle))]">
-        <div
-          className={cn(
-            "animate-grid",
-
-            "[background-repeat:repeat] [background-size:60px_60px] [height:300vh] [inset:0%_0px] [margin-left:-50%] [transform-origin:100%_0_0] [width:600vw]",
-
-            // Light Styles
-            "[background-image:linear-gradient(to_right,rgba(0,0,0,0.3)_1px,transparent_0),linear-gradient(to_bottom,rgba(0,0,0,0.3)_1px,transparent_0)]",
-
-            // Dark styles
-            "dark:[background-image:linear-gradient(to_right,rgba(255,255,255,0.2)_1px,transparent_0),linear-gradient(to_bottom,rgba(255,255,255,0.2)_1px,transparent_0)]"
-          )}
-        />
-      </div>
-
-      {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-t from-white to-transparent to-90% dark:from-black" />
-    </div>
-  );
-}
-
 export function Hero() {
+  const [emblaRef] = useEmblaCarousel({ loop: true, duration: 20 });
+
   return (
-    <div className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden">
-      <RetroGrid className="absolute inset-0" />
-      <div className="container mx-auto px-4 py-20 sm:py-32 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.h1
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 mb-4 sm:mb-6"
-            initial={{ scale: 0.5, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.7, type: "spring" }}
-          >
-            Elevate Your Financial Horizons
-          </motion.h1>
-
-          <motion.p
-            className="text-xl sm:text-2xl md:text-3xl text-gray-600 mb-8 sm:mb-10 px-2"
-            initial={{ x: -100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-          >
-            Experience precision trading with our advanced platform and global
-            market insights.
-          </motion.p>
-
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center px-4 sm:px-0"
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            <Button
-              size="lg"
-              className="text-lg sm:text-xl px-8 sm:px-10 py-6 sm:py-8 text-primary bg-secondary hover:bg-secondary hover:text-primary font-bold rounded-full transform transition hover:scale-105"
+    <div className="relative min-h-screen overflow-hidden">
+      <div className="embla" ref={emblaRef}>
+        <div className="embla__container h-screen">
+          {/* Video Slide */}
+          <div className="embla__slide relative w-full flex-[0_0_100%]">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
             >
-              Login to Portal
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="text-lg sm:text-xl px-8 sm:px-10 py-6 sm:py-8 border-2 border-primary text-primary font-bold rounded-full transform transition hover:scale-105"
-            >
-              Begin Your Trading Journey
-            </Button>
-          </motion.div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
-            {[
-              {
-                title: "Global Reach",
-                subtitle: "Traders from 180+ countries",
-              },
-              { title: "24/7 Markets", subtitle: "Trade anytime, anywhere" },
-              {
-                title: "Fast Execution",
-                subtitle: "Orders filled in milliseconds",
-              },
-              { title: "Secure Platform", subtitle: "Bank-grade encryption" },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                className="text-center p-4 bg-white/90 rounded-lg shadow-md"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-              >
-                <h3 className="text-lg font-semibold text-gray-800 mb-1">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-gray-600">{item.subtitle}</p>
-              </motion.div>
-            ))}
+              <source src="/bg.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <div className="absolute inset-0 bg-black/40" />
+            <div className="relative z-10 container mx-auto px-4 h-full flex items-center justify-center">
+              <div className="max-w-4xl text-center text-white">
+                <motion.h1
+                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-4 sm:mb-6"
+                  initial={{ scale: 0.5, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.7, type: "spring" }}
+                >
+                  Elevate Your Financial Horizons
+                </motion.h1>
+                <motion.p
+                  className="text-xl sm:text-2xl md:text-3xl mb-8 sm:mb-10 px-2"
+                  initial={{ x: -100, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.7, delay: 0.2 }}
+                >
+                  Experience precision trading with our advanced platform and
+                  global market insights.
+                </motion.p>
+                <motion.div
+                  className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center px-4 sm:px-0"
+                  initial={{ y: 50, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                >
+                  <Button
+                    size="lg"
+                    className="text-lg sm:text-xl px-8 sm:px-10 py-6 sm:py-8 text-primary bg-secondary hover:bg-secondary hover:text-primary font-bold rounded-full transform transition hover:scale-105"
+                  >
+                    Login to Portal
+                  </Button>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="text-lg text-primary sm:text-xl px-8 sm:px-10 py-6 sm:py-8 border-2 border-white font-bold rounded-full transform transition hover:scale-105"
+                  >
+                    Begin Your Trading Journey
+                  </Button>
+                </motion.div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
