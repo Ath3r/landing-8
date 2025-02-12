@@ -70,8 +70,7 @@ export default function ContactPage() {
               <div>
                 <h3 className="text-xl font-semibold mb-3">Office Hours</h3>
                 <div className="space-y-2 text-gray-600">
-                  <p>Monday - Friday: 24/7</p>
-                  <p>Saturday - Sunday: 24/7</p>
+                  <p>Monday - Sunday: 24/7</p>
                   <p className="text-sm mt-2">
                     Our support team is available around the clock to assist
                     you.
