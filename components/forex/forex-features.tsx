@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import Image from "next/image"
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 export function ForexFeatures() {
   const features = [
@@ -15,9 +15,9 @@ export function ForexFeatures() {
     },
     {
       title: "Enjoy fast and precise execution",
-      description: "on trader-favorite platforms like MT4, MT5, the Nexum Web Terminal and Nexum Trade app.",
+      description: "on trader-favorite platforms like MT5.",
     },
-  ]
+  ];
 
   return (
     <section className="py-16 sm:py-20 md:py-24 bg-white">
@@ -40,8 +40,12 @@ export function ForexFeatures() {
           >
             {features.map((feature, index) => (
               <div key={index} className="space-y-2 sm:space-y-3">
-                <h3 className="text-xl sm:text-2xl font-bold">{feature.title}</h3>
-                <p className="text-base sm:text-lg text-gray-600">{feature.description}</p>
+                <h3 className="text-xl sm:text-2xl font-bold">
+                  {feature.title}
+                </h3>
+                <p className="text-base sm:text-lg text-gray-600">
+                  {feature.description}
+                </p>
               </div>
             ))}
           </motion.div>
@@ -64,6 +68,5 @@ export function ForexFeatures() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-
