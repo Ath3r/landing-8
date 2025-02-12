@@ -38,12 +38,12 @@ export function Hero() {
               playsInline
               className="absolute inset-0 w-full h-full object-cover"
             >
-              <source src="/bg.mp4" type="video/mp4" />
+              <source src="/bg1.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             <div className="absolute inset-0 bg-black/40" />
-            <div className="relative z-10 container mx-auto px-4 h-full flex items-center justify-center">
-              <div className="max-w-4xl text-center text-white">
+            <div className="relative z-10 container mx-auto px-4 h-full flex items-center">
+              <div className="max-w-4xl text-white">
                 <motion.h1
                   className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-4 sm:mb-6"
                   initial={{ scale: 0.5, opacity: 0 }}
@@ -53,7 +53,7 @@ export function Hero() {
                   Elevate Your Financial Horizons
                 </motion.h1>
                 <motion.p
-                  className="text-xl sm:text-2xl md:text-3xl mb-8 sm:mb-10 px-2"
+                  className="text-xl sm:text-2xl md:text-3xl mb-8 sm:mb-10"
                   initial={{ x: -100, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.7, delay: 0.2 }}
@@ -62,7 +62,7 @@ export function Hero() {
                   global market insights.
                 </motion.p>
                 <motion.div
-                  className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center px-4 sm:px-0"
+                  className="flex flex-col sm:flex-row gap-4 sm:gap-6"
                   initial={{ y: 50, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.4 }}
