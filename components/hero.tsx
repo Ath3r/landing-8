@@ -30,15 +30,15 @@ export function Hero() {
       <div className="embla" ref={emblaRef}>
         <div className="embla__container h-screen">
           {/* Video Slide */}
-          <div className="embla__slide relative w-full flex-[0_0_100%]">
+          <div className="embla__slide relative w-full flex-[0_0_100%] h-screen">
             <video
               autoPlay
               muted
               loop
               playsInline
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 min-w-full min-h-full w-auto h-auto object-cover"
             >
-              <source src="/bg1.mp4" type="video/mp4" />
+              <source src="/bg.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             <div className="absolute inset-0 bg-black/40" />
