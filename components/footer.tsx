@@ -47,7 +47,7 @@ export function Footer() {
           <div className="space-y-6">
             <Link href="/" className="inline-block">
               <span className="text-3xl font-bold text-white hover:text-secondary transition-colors">
-                Nexum Capitals
+                Nexum Capitals Limited
               </span>
             </Link>
             <div className="space-y-4">
@@ -75,7 +75,7 @@ export function Footer() {
                   href="tel:+442012345678"
                   className="group-hover:text-secondary transition-colors"
                 >
-                  +44 74 6228 1389
+                  +971 (04) 231 2909
                 </a>
               </div>
             </div>
@@ -156,9 +156,8 @@ export function Footer() {
                 </span>
               </div>
               <p className="text-sm text-gray-500 ml-7">
-                Nexum Capitals is licensed and regulated by the Financial
-                Services Regulatory Authority (FSRA) of Saint Lucia under
-                license number 2025-00012.
+                Nexum Capitals Limited is registered company in Saint Lucia
+                under No. 2025-00012.
               </p>
             </div>
 
@@ -187,24 +186,25 @@ export function Footer() {
                   legal and tax advice before proceeding with any currency or
                   spot metals trade. Nothing in this site should be read or
                   construed as constituting advice on the part of Nexum Capitals
-                  or any of its affiliates, directors, officers or employees.
+                  Limited or any of its affiliates, directors, officers or
+                  employees.
                 </p>
                 <p className="text-sm text-gray-500">
                   <span className="font-medium">Restricted Regions:</span> Nexum
-                  Capitals does not provide services for citizens/residents of
-                  the United States, Cuba, Iraq, Myanmar, North Korea, Sudan.
-                  The services of Nexum Capitals are not intended for
-                  distribution to, or use by, any person in any country or
-                  jurisdiction where such distribution or use would be contrary
-                  to local law or regulation.
+                  Capitals Limited does not provide services for
+                  citizens/residents of the United States, Cuba, Iraq, Myanmar,
+                  North Korea, Sudan. The services of Nexum Capitals Limited are
+                  not intended for distribution to, or use by, any person in any
+                  country or jurisdiction where such distribution or use would
+                  be contrary to local law or regulation.
                 </p>
               </div>
             </div>
 
             {/* Copyright */}
             <div className="text-sm text-center pt-4 border-t border-gray-100 text-gray-400">
-              &copy; {new Date().getFullYear()} Nexum Capitals. All rights
-              reserved.
+              &copy; {new Date().getFullYear()} Nexum Capitals Limited. All
+              rights reserved.
             </div>
           </div>
         </div>
