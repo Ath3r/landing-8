@@ -57,27 +57,26 @@ export function TradingTools() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-50 via-white to-gray-50 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden"
     >
       <motion.div className="absolute inset-0 z-0" style={{ y }}>
         {/* Geometric pattern background */}
         <div
-          className="absolute inset-0 opacity-[0.15]"
+          className="absolute inset-0"
           style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, rgba(0,0,0,0.2) 1px, transparent 0)`,
-            backgroundSize: "24px 24px",
+            backgroundImage: `
+              linear-gradient(90deg, rgba(0,0,0,0.08) 1px, transparent 1px),
+              linear-gradient(180deg, rgba(0,0,0,0.08) 1px, transparent 1px)
+            `,
+            backgroundSize: '40px 40px',
+            mask: 'radial-gradient(circle at center, black 30%, transparent 70%)',
+            WebkitMask: 'radial-gradient(circle at center, black 30%, transparent 70%)'
           }}
         />
 
-        {/* Gradient overlay */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-tr from-blue-50/50 via-transparent to-purple-50/50" />
-          <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/90 to-transparent" />
-        </div>
-
         {/* Accent elements */}
-        <div className="absolute top-1/4 -left-12 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -right-12 w-96 h-96 bg-purple-100/20 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 -left-12 w-96 h-96 bg-blue-100/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 -right-12 w-96 h-96 bg-purple-100/10 rounded-full blur-3xl" />
       </motion.div>
 
       <div className="container mx-auto px-4 py-24 relative z-10">

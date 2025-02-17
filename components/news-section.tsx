@@ -115,8 +115,13 @@ export function NewsSection() {
 
   return (
     <>
-      <section className="bg-gray-50 py-16">
-        <div className="container mx-auto px-4">
+      <section className="relative bg-gray-50 py-16 overflow-hidden">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 4px 4px, rgba(0,0,0,0.4) 2px, transparent 0)`,
+          backgroundSize: "32px 32px",
+          opacity: 0.2,
+        }} />
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Latest Market News & Analysis
