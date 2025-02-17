@@ -46,13 +46,13 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <a
-                      href="tel:+442012345678"
+                      href="tel:+97142312909"
                       className="flex items-center gap-2 text-gray-600 hover:text-primary transition-colors"
                     >
                       <span className="w-5 h-5 bg-primary/10 rounded-full flex items-center justify-center">
                         📞
                       </span>
-                      +44 74 6228 1389
+                      +971 4 231 2909
                     </a>
                   </div>
                   <div className="flex items-start gap-2 text-gray-600">
