@@ -156,8 +156,9 @@ export function Footer() {
                 </span>
               </div>
               <p className="text-sm text-gray-500 ml-7">
-                Nexum Capitals Limited is registered company in Saint Lucia
-                under No. 2025-00012.
+                Nexum Capitals Limited is incorporated by the Financial Services
+                Regulatory Authority (FSRA) of Saint Lucia under license
+                number 2025-00012.
               </p>
             </div>
 
