@@ -75,7 +75,7 @@ export function Footer() {
                   href="tel:+442012345678"
                   className="group-hover:text-secondary transition-colors"
                 >
-                  +971 (04) 231 2909
+                  +971 4 231 2909
                 </a>
               </div>
             </div>
