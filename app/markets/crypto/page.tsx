@@ -32,7 +32,7 @@ export default function CryptoPage() {
   const faqs = [
     {
       question: "What is cryptocurrency trading?",
-      answer: "Cryptocurrency trading involves speculating on the price movements of various digital currencies like Bitcoin, Ethereum, and others through a trading platform. Traders can profit from both rising and falling markets."
+      answer: "Cryptocurrency trading involves speculating on the price movements of various digital currencies like Bitcoin, Ethereum, and others through a Broker. Traders can profit from both rising and falling markets."
     },
     {
       question: "What are the main cryptocurrencies?",

@@ -133,7 +133,7 @@ export function MarketsSection() {
             <div className="relative w-full aspect-[3/5] bg-gradient-to-b from-gray-900 to-gray-800 rounded-3xl shadow-2xl overflow-hidden">
               <Image
                 src="https://venmarltd.com/assets/img/web/comm_bg.png"
-                alt="Trading Platform"
+                alt="Broker"
                 width={300}
                 height={600}
                 className="w-full h-full object-cover"

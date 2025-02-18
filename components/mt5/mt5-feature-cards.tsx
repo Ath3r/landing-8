@@ -27,7 +27,7 @@ const features = [
     icon: LineChart,
     title: "Indicators & analytical object tools",
     description:
-      "Enhance your trading experience with 38 built-in indicators, 22 analytical tools and 46 graphical objects when you trade financial instruments in the trading platform.",
+      "Enhance your trading experience with 38 built-in indicators, 22 analytical tools and 46 graphical objects when you trade financial instruments in the Broker.",
   },
 ];
 

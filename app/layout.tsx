@@ -8,8 +8,8 @@ import { ChatAssistant } from '@/components/chat-assistant'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Nexum Capitals - Advanced Trading Platform',
-  description: 'Trade with Nexum Capitals, the world\'s most innovative trading platform',
+  title: 'Nexum Capitals - Advanced Broker',
+  description: 'Trade with Nexum Capitals, the world\'s most innovative Broker',
 }
 
 export default function RootLayout({

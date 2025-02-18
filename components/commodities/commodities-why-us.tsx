@@ -12,7 +12,7 @@ const reasons = [
   {
     icon: <ShieldCheck className="w-8 h-8" />,
     title: "Regulated Trading",
-    description: "Trade with confidence on our fully regulated and secure commodity trading platform"
+    description: "Trade with confidence on our fully regulated and secure commodity Broker"
   },
   {
     icon: <TrendingUp className="w-8 h-8" />,

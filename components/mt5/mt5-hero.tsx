@@ -64,7 +64,7 @@ export function MT5Hero() {
           >
             <Image
               src="https://acy.com/images/platformPage/metatrader-5-trading-platform-with-mobile.png"
-              alt="MetaTrader 5 Trading Platform"
+              alt="MetaTrader 5 Broker"
               width={800}
               height={500}
               className="rounded-xl"

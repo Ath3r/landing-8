@@ -199,7 +199,7 @@ export function Header() {
                                         {item.name}
                                       </div>
                                       <p className="text-sm text-muted-foreground">
-                                        Learn more about our trading platform
+                                        Learn more about our Broker
                                       </p>
                                     </div>
                                   </Link>

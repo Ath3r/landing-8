@@ -43,7 +43,7 @@ export function MT5Mobile() {
               MetaTrader 5 Mobile
             </h2>
             <p className="text-xl text-gray-600 mb-8">
-              Trade anywhere, anytime with our powerful mobile trading platform
+              Trade anywhere, anytime with our powerful mobile Broker
             </p>
 
             <div className="grid sm:grid-cols-2 gap-6 mb-8">

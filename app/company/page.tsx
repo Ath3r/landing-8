@@ -38,7 +38,7 @@ export default function CompanyPage() {
               <span className="text-secondary">Financial Future</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto pb-12">
-              At Nexum Capitals, we're not just another trading platform. We're
+              At Nexum Capitals, we're not just another Broker. We're
               your partner in navigating the complex world of financial markets
               with confidence and precision.
             </p>

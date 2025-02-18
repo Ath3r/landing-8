@@ -50,7 +50,7 @@ export function ForexConditions() {
               <div className="space-y-4 text-gray-600">
                 <p>
                   Spreads are always floating. Because of this, the spreads in the above table are averages based on the
-                  previous trading day. For live spreads, please refer to the trading platform
+                  previous trading day. For live spreads, please refer to the Broker
                 </p>
                 <p>
                   Please note that spreads may widen when the markets experience lower liquidity, including rollover

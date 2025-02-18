@@ -19,7 +19,7 @@ export function TradingEverywhere() {
   const platforms = [
     {
       name: "MT5 Desktop",
-      description: "Advanced trading platform for professionals",
+      description: "Advanced Broker for professionals",
       href: "/platforms/metatrader5",
       image: "https://www.metatrader5.com/i/web-trading/web-trading-main.jpg",
       id: "desktop",

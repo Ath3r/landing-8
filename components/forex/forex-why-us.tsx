@@ -36,7 +36,7 @@ export function ForexWhyUs() {
         >
           <h2 className="text-4xl font-bold mb-4">Why trade forex market with Nexum</h2>
           <p className="text-xl text-gray-600">
-            Take the currency market by storm and trade currencies on award-winning Forex trading platforms.
+            Take the currency market by storm and trade currencies on award-winning Forex Brokers.
           </p>
         </motion.div>
 

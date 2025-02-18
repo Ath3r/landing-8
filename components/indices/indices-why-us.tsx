@@ -22,7 +22,7 @@ const reasons = [
   {
     icon: <Shield className="w-8 h-8" />,
     title: "Secure Platform",
-    description: "Trade with confidence on our fully regulated and secure trading platform"
+    description: "Trade with confidence on our fully regulated and secure Broker"
   },
   {
     icon: <Zap className="w-8 h-8" />,

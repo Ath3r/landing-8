@@ -59,7 +59,7 @@ export function ForexFeatures() {
             <div className="aspect-[4/3] relative">
               <Image
                 src="/placeholder.svg?height=400&width=600"
-                alt="Forex Trading Platform"
+                alt="Forex Broker"
                 fill
                 className="rounded-lg shadow-lg object-cover"
               />
