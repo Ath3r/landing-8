@@ -1,21 +1,21 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
-import { ChatAssistant } from '@/components/chat-assistant'
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+import { ChatAssistant } from "@/components/chat-assistant";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Nexum Capitals - Advanced Broker',
-  description: 'Trade with Nexum Capitals, the world\'s most innovative Broker',
-}
+  title: "Nexum Capitals - Leading Broker of Choice",
+  description: "Trade Online with an Advanced Broker | Nexum Capitals",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
@@ -26,6 +26,5 @@ export default function RootLayout({
         {/* <ChatAssistant /> */}
       </body>
     </html>
-  )
+  );
 }
-
