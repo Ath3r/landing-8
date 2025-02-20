@@ -7,7 +7,7 @@ export default function TermsOfService() {
       
       <div className="prose max-w-none">
         <p className="mb-6">
-          This website is owned and operated by Nexum Capitals Limited ('us', 'we' and 'our'), a company incorporated by the Financial Services Regulatory Authority (FSRA) of Saint Lucia under license number 2025-00012.
+          This website is owned and operated by Nexum Capitals Limited ('us', 'we' and 'our'), a company incorporated in Saint Lucia under license number 2025-00012.
         </p>
 
         <p className="mb-6">
@@ -19,7 +19,7 @@ export default function TermsOfService() {
 
         <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
           <p className="text-yellow-700">
-            <strong>Important Note:</strong> Nexum Capitals Limited is incorporated by the Financial Services Regulatory Authority (FSRA) of Saint Lucia under license number 2025-00012. Nexum Capitals Limited provides operational activities and shall provide the necessary recourse to Clients in the scope applicable in relation to processed transactions by it.
+            <strong>Important Note:</strong> Nexum Capitals Limited is incorporated in Saint Lucia under license number 2025-00012. Nexum Capitals Limited provides operational activities and shall provide the necessary recourse to Clients in the scope applicable in relation to processed transactions by it.
           </p>
         </div>
 

@@ -152,7 +152,7 @@ export function Footer() {
               <div className="flex items-center gap-2">
                 <Shield className="w-5 h-5 text-primary" />
                 <span className="font-semibold text-gray-700">
-                  Regulatory Information
+                  Company Information
                 </span>
               </div>
               <p className="text-sm text-gray-500 ml-7">
