@@ -8,10 +8,22 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
-import { Menu, X, DollarSign, Gem, LineChart, BarChart3, Bitcoin, Monitor, Smartphone, Globe } from "lucide-react";
+import {
+  Menu,
+  X,
+  DollarSign,
+  Gem,
+  LineChart,
+  BarChart3,
+  Bitcoin,
+  Monitor,
+  Smartphone,
+  Globe,
+} from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
 import logo from "../app/logo.png";
+import { authLinks } from "@/config/links";
 
 export function Header() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -19,8 +31,12 @@ export function Header() {
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
 
   const platforms = {
-    Desktop: [{ name: "MetaTrader 5", href: "/platforms/metatrader5", icon: Monitor }],
-    Mobile: [{ name: "MetaTrader 5", href: "/platforms/mt5-mobile", icon: Smartphone }],
+    Desktop: [
+      { name: "MetaTrader 5", href: "/platforms/metatrader5", icon: Monitor },
+    ],
+    Mobile: [
+      { name: "MetaTrader 5", href: "/platforms/mt5-mobile", icon: Smartphone },
+    ],
     Web: [{ name: "MetaTrader 5", href: "/platforms/mt5-web", icon: Globe }],
   };
 
@@ -180,10 +196,12 @@ export function Header() {
               <Button
                 variant="ghost"
                 className="text-base font-medium text-gray-600 hover:text-black hover:bg-transparent"
+                onClick={() => (window.location.href = authLinks.login)}
               >
                 Sign in
               </Button>
               <Button
+                onClick={() => (window.location.href = authLinks.registerLive)}
                 className="bg-[#FFD700] hover:bg-[#FFD700]/90 text-black font-medium px-6 rounded"
               >
                 Register

@@ -1,7 +1,8 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { motion } from "framer-motion"
+import { Button } from "@/components/ui/button";
+import { authLinks } from "@/config/links";
+import { motion } from "framer-motion";
 
 export function ForexHero() {
   return (
@@ -32,8 +33,8 @@ export function ForexHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            Access the global forex market and trade the world's most popular currency pairs with better-than-market
-            conditions.
+            Access the global forex market and trade the world's most popular
+            currency pairs with better-than-market conditions.
           </motion.p>
 
           <motion.div
@@ -42,16 +43,24 @@ export function ForexHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <Button size="lg" className="bg-black hover:bg-black/90 text-white font-semibold px-8">
+            <Button
+              size="lg"
+              className="bg-black hover:bg-black/90 text-white font-semibold px-8"
+              onClick={() => (window.location.href = authLinks.registerLive)}
+            >
               Register
             </Button>
-            <Button size="lg" variant="outline" className="text-black border-white hover:bg-white/10">
+            <Button
+              size="lg"
+              variant="outline"
+              className="text-black border-white hover:bg-white/10"
+              onClick={() => (window.location.href = authLinks.registerDemo)}
+            >
               Try free demo
             </Button>
           </motion.div>
         </div>
       </div>
     </section>
-  )
+  );
 }
-

@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { authLinks } from "@/config/links";
 
 export const metadata: Metadata = {
   title: "About Our Company | Nexum Capitals",
@@ -38,9 +39,9 @@ export default function CompanyPage() {
               <span className="text-secondary">Financial Future</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto pb-12">
-              At Nexum Capitals, we're not just another Broker. We're
-              your partner in navigating the complex world of financial markets
-              with confidence and precision.
+              At Nexum Capitals, we're not just another Broker. We're your
+              partner in navigating the complex world of financial markets with
+              confidence and precision.
             </p>
           </div>
         </div>
@@ -284,7 +285,7 @@ export default function CompanyPage() {
                 variant="outline"
                 className="border-primary text-primary hover:bg-primary hover:text-white"
               >
-                <Link href="/register">
+                <Link href={authLinks.registerDemo}>
                   Join Nexum Capitals
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>

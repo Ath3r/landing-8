@@ -21,6 +21,7 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { authLinks } from "@/config/links";
 
 export function Hero() {
   const [emblaRef] = useEmblaCarousel({ loop: true, duration: 20 });
@@ -70,6 +71,7 @@ export function Hero() {
                   <Button
                     size="lg"
                     className="text-lg sm:text-xl px-8 sm:px-10 py-6 sm:py-8 text-primary bg-secondary hover:bg-secondary hover:text-primary font-bold rounded-full transform transition hover:scale-105"
+                    onClick={() => (window.location.href = authLinks.login)}
                   >
                     Login to Portal
                   </Button>
@@ -77,6 +79,9 @@ export function Hero() {
                     size="lg"
                     variant="outline"
                     className="text-lg text-primary sm:text-xl px-8 sm:px-10 py-6 sm:py-8 border-2 border-white font-bold rounded-full transform transition hover:scale-105"
+                    onClick={() =>
+                      (window.location.href = authLinks.registerLive)
+                    }
                   >
                     Begin Your Trading Journey
                   </Button>
@@ -230,12 +235,14 @@ export function Header() {
                 variant="ghost"
                 size="lg"
                 className="text-lg text-muted-foreground hover:text-primary"
+                onClick={() => (window.location.href = authLinks.login)}
               >
                 Sign In
               </Button>
               <Button
                 size="lg"
                 className="text-lg bg-primary text-primary-foreground hover:bg-primary/90"
+                onClick={() => (window.location.href = authLinks.registerLive)}
               >
                 Register
               </Button>

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { Download, ArrowRight } from "lucide-react";
+import { authLinks } from "@/config/links";
 
 export function MT5Hero() {
   return (
@@ -37,10 +38,11 @@ export function MT5Hero() {
               fingertips, offering advanced tools for CFDs, forex, stocks, and
               more.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 z-10">
               <Button
                 size="lg"
                 className="bg-secondary hover:bg-secondary/90 text-primary font-semibold px-8 py-6"
+                onClick={() => (window.location.href = authLinks.login)}
               >
                 <Download className="w-5 h-5 mr-2" />
                 Download MT5
@@ -49,6 +51,7 @@ export function MT5Hero() {
                 size="lg"
                 variant="outline"
                 className="border-gray-300 hover:bg-gray-100 text-gray-900 px-8 py-6"
+                onClick={() => (window.location.href = authLinks.login)}
               >
                 Learn More
                 <ArrowRight className="w-5 h-5 ml-2" />

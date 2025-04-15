@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
+import { authLinks } from "@/config/links";
 
 export function TradingInstruments() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -60,9 +61,10 @@ export function TradingInstruments() {
               linear-gradient(90deg, rgba(0,0,0,0.08) 1px, transparent 1px),
               linear-gradient(180deg, rgba(0,0,0,0.08) 1px, transparent 1px)
             `,
-            backgroundSize: '40px 40px',
-            mask: 'radial-gradient(circle at center, black 30%, transparent 70%)',
-            WebkitMask: 'radial-gradient(circle at center, black 30%, transparent 70%)'
+            backgroundSize: "40px 40px",
+            mask: "radial-gradient(circle at center, black 30%, transparent 70%)",
+            WebkitMask:
+              "radial-gradient(circle at center, black 30%, transparent 70%)",
           }}
         />
 
@@ -121,6 +123,7 @@ export function TradingInstruments() {
           <Button
             size="lg"
             className="bg-secondary hover:bg-secondary/90 text-primary font-bold px-8 h-12 text-lg rounded-full"
+            onClick={() => (window.location.href = authLinks.registerLive)}
           >
             Register Now
           </Button>
@@ -128,6 +131,7 @@ export function TradingInstruments() {
             size="lg"
             variant="outline"
             className="text-gray-900 border-gray-300 hover:bg-gray-50 h-12 text-lg rounded-full"
+            onClick={() => (window.location.href = authLinks.registerDemo)}
           >
             Try Free Demo
           </Button>

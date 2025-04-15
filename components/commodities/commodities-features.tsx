@@ -1,13 +1,9 @@
-'use client'
+"use client";
 
-import { motion } from "framer-motion"
-import { 
-  Gem, 
-  Droplet, 
-  Wheat, 
-  Factory
-} from "lucide-react"
-import Image from "next/image"
+import { authLinks } from "@/config/links";
+import { motion } from "framer-motion";
+import { Gem, Droplet, Wheat, Factory } from "lucide-react";
+import Image from "next/image";
 
 const features = [
   {
@@ -17,9 +13,9 @@ const features = [
     image: "https://source.unsplash.com/random/800x600?gold,metal",
     stats: {
       volume: "$84B",
-      daily: "24/7", 
-      markets: "5+"
-    }
+      daily: "24/7",
+      markets: "5+",
+    },
   },
   {
     icon: <Droplet className="w-6 h-6" />,
@@ -29,19 +25,19 @@ const features = [
     stats: {
       volume: "$120B",
       daily: "24/5",
-      markets: "10+"
-    }
+      markets: "10+",
+    },
   },
   {
     icon: <Wheat className="w-6 h-6" />,
-    title: "Agriculture", 
+    title: "Agriculture",
     description: "Trade essential agricultural commodities",
     image: "https://source.unsplash.com/random/800x600?agriculture,farm",
     stats: {
       volume: "$45B",
       daily: "24/5",
-      markets: "15+"
-    }
+      markets: "15+",
+    },
   },
   {
     icon: <Factory className="w-6 h-6" />,
@@ -51,16 +47,16 @@ const features = [
     stats: {
       volume: "$65B",
       daily: "24/5",
-      markets: "8+"
-    }
-  }
-]
+      markets: "8+",
+    },
+  },
+];
 
 export function CommoditiesFeatures() {
   return (
     <section className="py-24 bg-white">
       <div className="container mx-auto px-4">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -111,20 +107,35 @@ export function CommoditiesFeatures() {
 
                 <div className="grid grid-cols-3 gap-4 mb-6">
                   <div className="bg-white/60 backdrop-blur-sm p-4 rounded-xl border border-gray-100 group-hover:border-primary/20 transition-colors">
-                    <div className="text-sm text-gray-500 mb-1">Daily Volume</div>
-                    <div className="text-xl font-bold text-primary">{feature.stats.volume}</div>
+                    <div className="text-sm text-gray-500 mb-1">
+                      Daily Volume
+                    </div>
+                    <div className="text-xl font-bold text-primary">
+                      {feature.stats.volume}
+                    </div>
                   </div>
                   <div className="bg-white/60 backdrop-blur-sm p-4 rounded-xl border border-gray-100 group-hover:border-primary/20 transition-colors">
-                    <div className="text-sm text-gray-500 mb-1">Trading Hours</div>
-                    <div className="text-xl font-bold text-primary">{feature.stats.daily}</div>
+                    <div className="text-sm text-gray-500 mb-1">
+                      Trading Hours
+                    </div>
+                    <div className="text-xl font-bold text-primary">
+                      {feature.stats.daily}
+                    </div>
                   </div>
                   <div className="bg-white/60 backdrop-blur-sm p-4 rounded-xl border border-gray-100 group-hover:border-primary/20 transition-colors">
                     <div className="text-sm text-gray-500 mb-1">Markets</div>
-                    <div className="text-xl font-bold text-primary">{feature.stats.markets}</div>
+                    <div className="text-xl font-bold text-primary">
+                      {feature.stats.markets}
+                    </div>
                   </div>
                 </div>
 
-                <button className="w-full bg-gradient-to-r from-primary to-primary/80 text-white py-3 rounded-xl font-medium hover:from-primary/90 hover:to-primary/70 transition-all duration-300 group-hover:scale-[1.02]">
+                <button
+                  onClick={() =>
+                    (window.location.href = authLinks.registerLive)
+                  }
+                  className="w-full bg-gradient-to-r from-primary to-primary/80 text-white py-3 rounded-xl font-medium hover:from-primary/90 hover:to-primary/70 transition-all duration-300 group-hover:scale-[1.02]"
+                >
                   Start Trading {feature.title} →
                 </button>
               </div>
@@ -143,7 +154,8 @@ export function CommoditiesFeatures() {
           <div className="w-full bg-gray-50 px-8 py-12 rounded-xl flex flex-col items-center border-t border-gray-100">
             <h3 className="text-3xl font-bold mb-3">Ready to Start Trading?</h3>
             <p className="text-gray-600 text-lg mb-6 max-w-2xl text-center">
-              Open an account in minutes and start trading commodities with confidence
+              Open an account in minutes and start trading commodities with
+              confidence
             </p>
             <div className="flex gap-4">
               <button className="bg-primary text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors font-medium">
@@ -157,5 +169,5 @@ export function CommoditiesFeatures() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

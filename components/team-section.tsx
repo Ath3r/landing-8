@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { authLinks } from "@/config/links";
 import { motion } from "framer-motion";
 
 export function TeamSection() {
@@ -25,6 +26,7 @@ export function TeamSection() {
               <Button
                 size="lg"
                 className="bg-[#FFD700] hover:bg-[#FFD700]/90 text-black font-bold px-8 rounded-lg text-lg"
+                onClick={() => (window.location.href = authLinks.registerLive)}
               >
                 Register
               </Button>
@@ -32,6 +34,7 @@ export function TeamSection() {
                 size="lg"
                 variant="outline"
                 className="border-gray-700  text-primary hover:text-white hover:bg-white/5 font-bold px-8 rounded-lg text-lg"
+                onClick={() => (window.location.href = authLinks.registerDemo)}
               >
                 Try free demo
               </Button>
