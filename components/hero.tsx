@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
 import { useRef, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import {
@@ -45,28 +44,19 @@ export function Hero() {
             <div className="absolute inset-0 bg-black/40" />
             <div className="relative z-10 container mx-auto px-4 h-full flex items-center">
               <div className="max-w-4xl text-white">
-                <motion.h1
-                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-4 sm:mb-6"
-                  initial={{ scale: 0.5, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.7, type: "spring" }}
+                <h1
+                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-4 sm:mb-6 animate-hero-heading"
                 >
                   Elevate Your Financial Horizons
-                </motion.h1>
-                <motion.p
-                  className="text-xl sm:text-2xl md:text-3xl mb-8 sm:mb-10"
-                  initial={{ x: -100, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 0.7, delay: 0.2 }}
+                </h1>
+                <p
+                  className="text-xl sm:text-2xl md:text-3xl mb-8 sm:mb-10 animate-hero-subheading"
                 >
                   Experience precision trading with our advanced platform and
                   global market insights.
-                </motion.p>
-                <motion.div
-                  className="flex flex-col sm:flex-row gap-4 sm:gap-6"
-                  initial={{ y: 50, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
+                </p>
+                <div
+                  className="flex flex-col sm:flex-row gap-4 sm:gap-6 animate-hero-buttons"
                 >
                   <Button
                     size="lg"
@@ -85,7 +75,7 @@ export function Hero() {
                   >
                     Begin Your Trading Journey
                   </Button>
-                </motion.div>
+                </div>
               </div>
             </div>
           </div>

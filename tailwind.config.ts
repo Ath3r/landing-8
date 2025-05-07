@@ -92,12 +92,27 @@ const config: Config = {
             height: "0",
           },
         },
+        fadeInScaleUp: {
+          '0%': { opacity: '0', transform: 'scale(0.5)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+        fadeInSlideInLeft: {
+          '0%': { opacity: '0', transform: 'translateX(-100px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        fadeInSlideInUp: {
+          '0%': { opacity: '0', transform: 'translateY(50px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "wave-pulse": "wave-pulse  4s ease-in-out infinite",
         grid: "grid 15s linear infinite",
+        'hero-h1': 'fadeInScaleUp 0.7s ease-out forwards',
+        'hero-p': 'fadeInSlideInLeft 0.7s ease-out 0.2s forwards',
+        'hero-buttons': 'fadeInSlideInUp 0.5s ease-out 0.4s forwards',
       },
     },
   },

@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
@@ -9,12 +8,6 @@ import Link from "next/link";
 export function TradingEverywhere() {
   const sectionRef = useRef<HTMLElement>(null);
   const [activeImage, setActiveImage] = useState("desktop");
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
 
   const platforms = [
     {
@@ -40,27 +33,15 @@ export function TradingEverywhere() {
     },
   ];
 
-  const containerAnimation = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemAnimation = {
-    hidden: { opacity: 0, x: -20 },
-    show: { opacity: 1, x: 0 },
-  };
+  const currentPlatformImage = platforms.find(p => p.id === activeImage)?.image;
+  const currentPlatformName = platforms.find(p => p.id === activeImage)?.name;
 
   return (
     <section
       ref={sectionRef}
       className="relative min-h-screen flex items-center justify-center bg-primary overflow-hidden"
     >
-      <motion.div className="absolute inset-0 z-0" style={{ y }}>
+      <div className="absolute inset-0 z-0">
         {/* Geometric pattern background */}
         <div
           className="absolute inset-0 opacity-[0.15]"
@@ -70,91 +51,37 @@ export function TradingEverywhere() {
           }}
         />
 
-        {/* Accent elements */}
-        <div className="absolute top-1/4 -left-12 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -right-12 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
-      </motion.div>
+        {/* Accent elements - blurs removed */}
+        <div className="absolute top-1/4 -left-12 w-96 h-96 bg-white/10 rounded-full" />
+        <div className="absolute bottom-1/4 -right-12 w-96 h-96 bg-white/5 rounded-full" />
+      </div>
 
       <div className="container mx-auto px-4 py-24 relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-          {/* Left side - Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+          {/* Left side - Image - animations removed */}
+          <div
             className="relative"
           >
-            <motion.div
-              animate={{
-                y: [0, -10, 0],
-                transition: {
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                },
-              }}
+            <div
               className="relative aspect-[4/3] rounded-3xl shadow-2xl overflow-hidden bg-gray-900"
             >
-              {platforms.map((platform) => (
-                <motion.div
-                  key={platform.id}
-                  initial={{ opacity: 0 }}
-                  animate={{
-                    opacity: activeImage === platform.id ? 1 : 0,
-                    scale: activeImage === platform.id ? 1 : 0.95,
-                  }}
-                  transition={{ duration: 0.5 }}
-                  className="absolute inset-0 flex items-center justify-center p-8"
-                >
-                  <Image
-                    src={platform.image}
-                    alt={platform.name}
-                    fill
-                    className="object-contain"
-                    priority
-                  />
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
+              {currentPlatformImage && (
+                <Image
+                  src={currentPlatformImage}
+                  alt={currentPlatformName || "Platform image"}
+                  fill
+                  className="object-contain p-8"
+                  priority
+                />
+              )}
+            </div>
+          </div>
 
-          {/* Right side - Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+          {/* Right side - Content - animations removed */}
+          <div
             className="space-y-8"
           >
-            {/* Animated Dots */}
-            <motion.div
-              className="grid grid-cols-3 gap-1 w-12 h-12"
-              animate={{
-                rotate: [0, 90, 180, 270, 360],
-                transition: {
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: "linear",
-                },
-              }}
-            >
-              {[...Array(9)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="w-1.5 h-1.5 rounded-full bg-white"
-                  animate={{
-                    scale: [1, 1.5, 1],
-                    transition: {
-                      duration: 2,
-                      repeat: Infinity,
-                      delay: i * 0.2,
-                      ease: "easeInOut",
-                    },
-                  }}
-                />
-              ))}
-            </motion.div>
+            {/* Animated Dots removed */}
 
             {/* Heading */}
             <div>
@@ -167,21 +94,14 @@ export function TradingEverywhere() {
               </p>
             </div>
 
-            {/* Platform Links */}
-            <motion.div
-              variants={containerAnimation}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
+            {/* Platform Links - animations removed */}
+            <div
               className="space-y-6 pt-4"
             >
               {platforms.map((platform, index) => (
-                <motion.div
+                <div
                   key={platform.name}
-                  variants={itemAnimation}
-                  whileHover={{ x: 10 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  onHoverStart={() => setActiveImage(platform.id)}
+                  onMouseEnter={() => setActiveImage(platform.id)}
                 >
                   <Link
                     href={platform.href}
@@ -199,10 +119,10 @@ export function TradingEverywhere() {
                     </div>
                     <ChevronRight className="w-5 h-5 text-white/70 group-hover:text-white transition-colors" />
                   </Link>
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

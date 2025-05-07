@@ -1,19 +1,12 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 
 export function TradingTools() {
   const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
 
   const tools = [
     {
@@ -39,27 +32,12 @@ export function TradingTools() {
     },
   ];
 
-  const containerAnimation = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemAnimation = {
-    hidden: { opacity: 0, x: -20 },
-    show: { opacity: 1, x: 0 },
-  };
-
   return (
     <section
       ref={sectionRef}
       className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden"
     >
-      <motion.div className="absolute inset-0 z-0" style={{ y }}>
+      <div className="absolute inset-0 z-0">
         {/* Geometric pattern background */}
         <div
           className="absolute inset-0"
@@ -74,49 +52,18 @@ export function TradingTools() {
           }}
         />
 
-        {/* Accent elements */}
-        <div className="absolute top-1/4 -left-12 w-96 h-96 bg-blue-100/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -right-12 w-96 h-96 bg-purple-100/10 rounded-full blur-3xl" />
-      </motion.div>
+        {/* Accent elements - blurs removed */}
+        <div className="absolute top-1/4 -left-12 w-96 h-96 bg-blue-100/20 rounded-full" />
+        <div className="absolute bottom-1/4 -right-12 w-96 h-96 bg-purple-100/10 rounded-full" />
+      </div>
 
       <div className="container mx-auto px-4 py-24 relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-          {/* Left side - Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+          {/* Left side - Content - animations removed */}
+          <div
             className="space-y-8"
           >
-            {/* Animated Dots */}
-            <motion.div
-              className="grid grid-cols-3 gap-1 w-12 h-12"
-              animate={{
-                rotate: [0, 90, 180, 270, 360],
-                transition: {
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: "linear",
-                },
-              }}
-            >
-              {[...Array(9)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="w-1.5 h-1.5 rounded-full bg-gray-900"
-                  animate={{
-                    scale: [1, 1.5, 1],
-                    transition: {
-                      duration: 2,
-                      repeat: Infinity,
-                      delay: i * 0.2,
-                      ease: "easeInOut",
-                    },
-                  }}
-                />
-              ))}
-            </motion.div>
+            {/* Animated Dots removed */}
 
             {/* Heading */}
             <div>
@@ -129,20 +76,13 @@ export function TradingTools() {
               </p>
             </div>
 
-            {/* Tool Links */}
-            <motion.div
-              variants={containerAnimation}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
+            {/* Tool Links - animations removed */}
+            <div
               className="space-y-6 pt-4"
             >
               {tools.map((tool) => (
-                <motion.div
+                <div // Changed from motion.div
                   key={tool.name}
-                  variants={itemAnimation}
-                  whileHover={{ x: 10 }}
-                  transition={{ type: "spring", stiffness: 300 }}
                 >
                   <Link
                     href={tool.href}
@@ -156,28 +96,16 @@ export function TradingTools() {
                     </div>
                     <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-gray-600 transition-colors" />
                   </Link>
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
-          {/* Right side - Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+          {/* Right side - Image - animations removed */}
+          <div
             className="relative"
           >
-            <motion.div
-              animate={{
-                y: [0, -10, 0],
-                transition: {
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                },
-              }}
+            <div
               className="relative aspect-[4/3] rounded-3xl shadow-2xl overflow-hidden bg-gray-900"
             >
               <Image
@@ -187,8 +115,8 @@ export function TradingTools() {
                 className="object-contain"
                 priority
               />
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

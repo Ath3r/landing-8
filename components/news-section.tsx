@@ -1,6 +1,5 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { Calendar, Clock, ChevronRight, X } from "lucide-react";
 import { useState } from "react";
@@ -111,7 +110,7 @@ interface NewsItem {
 
 export function NewsSection() {
   const [selectedNews, setSelectedNews] = useState<NewsItem | null>(null);
-  const news = newsData.news;
+  const { news } = newsData;
 
   return (
     <>
@@ -133,12 +132,8 @@ export function NewsSection() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {news.map((item) => (
-              <motion.div
+              <div
                 key={item.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
                 className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow cursor-pointer"
                 onClick={() => setSelectedNews(item)}
               >
@@ -183,76 +178,68 @@ export function NewsSection() {
                     </button>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <AnimatePresence>
-        {selectedNews && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-            onClick={() => setSelectedNews(null)}
+      {selectedNews && (
+        <div
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          onClick={() => setSelectedNews(null)}
+        >
+          <div
+            className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] flex flex-col overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
           >
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[80vh] overflow-y-auto"
-            >
-              <div className="relative">
-                <div className="h-64 relative">
-                  <Image
-                    src={selectedNews.imageUrl}
-                    alt={selectedNews.title}
-                    fill
-                    className="object-cover"
-                  />
-                  <button
-                    onClick={() => setSelectedNews(null)}
-                    className="absolute top-4 right-4 bg-white/90 p-2 rounded-full hover:bg-white transition-colors"
-                  >
-                    <X className="w-4 h-4" />
-                  </button>
-                  <div className="absolute bottom-4 left-4">
-                    <span className="bg-secondary px-3 py-1 rounded-full text-sm text-white">
-                      {selectedNews.category}
-                    </span>
-                  </div>
+            <div className="relative h-64 md:h-80 w-full">
+              <Image
+                src={selectedNews.imageUrl}
+                alt={selectedNews.title}
+                fill
+                className="object-cover"
+              />
+              <button
+                onClick={() => setSelectedNews(null)}
+                className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 p-2 rounded-full text-white transition-colors"
+                aria-label="Close news article"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="p-6 md:p-8 overflow-y-auto flex-grow">
+              <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
+                <div className="flex items-center gap-1">
+                  <Calendar className="w-4 h-4" />
+                  <span>{selectedNews.date}</span>
                 </div>
-                <div className="p-6">
-                  <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
-                    <div className="flex items-center gap-1">
-                      <Calendar className="w-4 h-4" />
-                      <span>{selectedNews.date}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Clock className="w-4 h-4" />
-                      <span>{selectedNews.readTime}</span>
-                    </div>
-                  </div>
-                  <h2 className="text-2xl font-bold mb-4">{selectedNews.title}</h2>
-                  <div className="prose max-w-none">
-                    {selectedNews.content.split('\n\n').map((paragraph, index) => (
-                      <p key={index} className="mb-4 text-gray-600">
-                        {paragraph}
-                      </p>
-                    ))}
-                  </div>
-                  <div className="mt-6 pt-6 border-t">
-                    <span className="text-sm text-gray-500">Written by {selectedNews.author}</span>
-                  </div>
+                <div className="flex items-center gap-1">
+                  <Clock className="w-4 h-4" />
+                  <span>{selectedNews.readTime}</span>
                 </div>
               </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              <h2 className="text-2xl md:text-3xl font-bold mb-3 text-gray-900">
+                {selectedNews.title}
+              </h2>
+              <p className="text-sm text-gray-500 mb-4">
+                By {selectedNews.author} | Category: {selectedNews.category}
+              </p>
+              <div className="prose prose-sm sm:prose-base max-w-none text-gray-700 whitespace-pre-wrap">
+                {selectedNews.content}
+              </div>
+            </div>
+            <div className="p-6 border-t border-gray-200 bg-gray-50 flex justify-end">
+              <button
+                onClick={() => setSelectedNews(null)}
+                className="px-6 py-2 bg-secondary text-white rounded-md hover:bg-secondary/90 transition-colors"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

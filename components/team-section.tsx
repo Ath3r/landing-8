@@ -2,17 +2,13 @@
 
 import { Button } from "@/components/ui/button";
 import { authLinks } from "@/config/links";
-import { motion } from "framer-motion";
 
 export function TeamSection() {
   return (
     <section className="relative overflow-hidden bg-[#0E1116]">
       <div className="container mx-auto px-4 py-24">
         <div className="max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <div
             className="space-y-6"
           >
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white">
@@ -39,7 +35,7 @@ export function TeamSection() {
                 Try free demo
               </Button>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

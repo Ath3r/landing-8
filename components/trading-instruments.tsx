@@ -2,19 +2,12 @@
 
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { authLinks } from "@/config/links";
 
 export function TradingInstruments() {
   const sectionRef = useRef<HTMLElement>(null);
   const widgetContainerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -52,7 +45,7 @@ export function TradingInstruments() {
       ref={sectionRef}
       className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden"
     >
-      <motion.div className="absolute inset-0 z-0" style={{ y }}>
+      <div className="absolute inset-0 z-0">
         {/* Geometric pattern background */}
         <div
           className="absolute inset-0"
@@ -68,33 +61,22 @@ export function TradingInstruments() {
           }}
         />
 
-        {/* Accent elements */}
-        <div className="absolute top-1/4 -left-12 w-96 h-96 bg-blue-100/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -right-12 w-96 h-96 bg-purple-100/10 rounded-full blur-3xl" />
-      </motion.div>
+        {/* Accent elements - blurs removed */}
+        <div className="absolute top-1/4 -left-12 w-96 h-96 bg-blue-100/20 rounded-full" />
+        <div className="absolute bottom-1/4 -right-12 w-96 h-96 bg-purple-100/10 rounded-full" />
+      </div>
 
       <div className="container mx-auto px-4 py-24 relative z-10">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
+        <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 mb-6">
             Trade assets from global markets
           </h2>
           <p className="text-xl sm:text-2xl md:text-3xl text-gray-600 max-w-3xl mx-auto">
-            Capitalize on every opportunity with the world's most popular
-            assets.
+            Capitalize on every opportunity with the world's most popular assets.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          className="max-w-6xl mx-auto bg-gradient-to-b from-gray-900 to-gray-800 rounded-3xl shadow-2xl overflow-hidden"
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-        >
+        <div className="max-w-6xl mx-auto bg-gradient-to-b from-gray-900 to-gray-800 rounded-3xl shadow-2xl overflow-hidden">
           <div className="tradingview-widget-container">
             <div
               ref={widgetContainerRef}
@@ -111,15 +93,9 @@ export function TradingInstruments() {
               </a>
             </div>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          className="flex flex-col sm:flex-row justify-center gap-4 mt-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-        >
+        <div className="flex flex-col sm:flex-row justify-center gap-4 mt-12">
           <Button
             size="lg"
             className="bg-secondary hover:bg-secondary/90 text-primary font-bold px-8 h-12 text-lg rounded-full"
@@ -135,7 +111,7 @@ export function TradingInstruments() {
           >
             Try Free Demo
           </Button>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
